@@ -1,0 +1,39 @@
+mat-toolbar,#btn{
+    background: rgb(20,93,182);
+}
+mat-stepper{
+    max-width: 575px;
+    border-radius: 60px;
+    margin: 5em auto;
+    text-align: center;
+    background-color: #ffb618;
+    color: black;
+}
+:host::ng-deep .mat-step-header .mat-step-icon-selected,
+:host::ng-deep .mat-step-header .mat-step-icon,
+:host::ng-deep .mat-step-header .mat-step-label.mat-step-label-active,
+:host::ng-deep .mat-step-header .mat-step-label{
+    background: #ffb618;
+    color: black;
+}
+:host::ng-deep .mat-horizontal-stepper-header::before,
+:host::ng-deep .mat-horizontal-stepper-header::after,
+:host::ng-deep .mat-stepper-horizontal-line{
+    border-top-color: black;
+}
+:host::ng-deep .mat-form-field.mat-focused .mat-form-field-label.mat-accent,
+:host::ng-deep .mat-form-field.mat-focused .mat-form-field-label .mat-form-field-required-marker,
+:host::ng-deep .mat-focused .mat-form-field-label,
+:host::ng-deep .mat-form-field-label,
+:host::ng-deep .mat-input-element,
+:host::ng-deep.mat-drawer-container{
+    color: black !important;
+}
+:host::ng-deep .mat-form-field.mat-focused .mat-form-field-underline,
+:host::ng-deep.mat-form-field-underline,
+:host::ng-deep.mat-form-field-ripple {
+    background-color: black !important;
+}
+.full-width{
+    width: 80%;
+}

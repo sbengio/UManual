@@ -1,0 +1,34 @@
+<h1 mat-dialog-title>Your Bitcoin account details</h1>
+<mat-dialog-content [formGroup]="WithdrawForm">
+        <div style="margin-top: 15px;">
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Bank branch</mat-label>
+            <input formControlName="branch" matInput required/>
+            <mat-error *ngIf="WithdrawForm.get('branch')!.errors?.required&& WithdrawForm.get('branch')!.touched">
+              Branch is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="full-width" appearance="fill">
+              <mat-label>Account name</mat-label>
+              <input formControlName="name" matInput required/>
+              <mat-error *ngIf="WithdrawForm.get('name')!.errors?.required&& WithdrawForm.get('name')!.touched">
+                Account name is required
+              </mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Account number</mat-label>
+            <input formControlName="accnumber" matInput required/>
+            <mat-error *ngIf="WithdrawForm.get('accnumber')!.errors?.required&& WithdrawForm.get('accnumber')!.touched ">
+              Account number is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+        <button mat-raised-button (click)="close()">Cancel</button>
+        <button mat-raised-button type="submit" mat-primary (click)="close()">Withdraw</button>
+</mat-dialog-actions>

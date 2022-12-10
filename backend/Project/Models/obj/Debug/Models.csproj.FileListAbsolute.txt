@@ -1,0 +1,12 @@
+M:\!!!!!!!!!!machsevistiot\PROJECT\Layers\Project\Models\bin\Debug\Models.dll.config
+M:\!!!!!!!!!!machsevistiot\PROJECT\Layers\Project\Models\bin\Debug\Models.dll
+M:\!!!!!!!!!!machsevistiot\PROJECT\Layers\Project\Models\bin\Debug\Models.pdb
+M:\!!!!!!!!!!machsevistiot\PROJECT\Layers\Project\Models\bin\Debug\EntityFramework.dll
+M:\!!!!!!!!!!machsevistiot\PROJECT\Layers\Project\Models\bin\Debug\EntityFramework.SqlServer.dll
+M:\!!!!!!!!!!machsevistiot\PROJECT\Layers\Project\Models\bin\Debug\EntityFramework.xml
+M:\!!!!!!!!!!machsevistiot\PROJECT\Layers\Project\Models\bin\Debug\EntityFramework.SqlServer.xml
+M:\!!!!!!!!!!machsevistiot\PROJECT\Layers\Project\Models\obj\Debug\Models.csprojAssemblyReference.cache
+M:\!!!!!!!!!!machsevistiot\PROJECT\Layers\Project\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+M:\!!!!!!!!!!machsevistiot\PROJECT\Layers\Project\Models\obj\Debug\Models.csproj.CopyComplete
+M:\!!!!!!!!!!machsevistiot\PROJECT\Layers\Project\Models\obj\Debug\Models.dll
+M:\!!!!!!!!!!machsevistiot\PROJECT\Layers\Project\Models\obj\Debug\Models.pdb

@@ -1,0 +1,910 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DeviceVideosDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Buyers">
+          <Key>
+            <PropertyRef Name="BuyerId" />
+          </Key>
+          <Property Name="BuyerId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreditCardNumbers" Type="int" Nullable="false" />
+          <Property Name="Token" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DeviceBrands">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Brand" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Devices">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DeviceTypeId" Type="bigint" Nullable="false" />
+          <Property Name="DeviceBrandId" Type="bigint" Nullable="false" />
+          <Property Name="Model" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DeviceTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Feedbacks">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IP_Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="VideoId" Type="bigint" Nullable="false" />
+          <Property Name="PauseCount" Type="bigint" Nullable="false" />
+          <Property Name="BackCount" Type="bigint" Nullable="false" />
+          <Property Name="Stars" Type="int" Nullable="false" />
+          <Property Name="Finish" Type="bigint" Nullable="false" />
+          <Property Name="MinutesStopped" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Income">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VideoId" Type="bigint" Nullable="false" />
+          <Property Name="BuyerId" Type="bigint" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Languages">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LanguageName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Code" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Seniors">
+          <Key>
+            <PropertyRef Name="IP_Address" />
+          </Key>
+          <Property Name="IP_Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UploaderLanguages">
+          <Key>
+            <PropertyRef Name="UploaderId" />
+            <PropertyRef Name="LanguageId" />
+          </Key>
+          <Property Name="UploaderId" Type="bigint" Nullable="false" />
+          <Property Name="LanguageId" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Uploaders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Firstname" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Support" Type="bit" Nullable="false" />
+          <Property Name="Timezone" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Earnings" Type="money" Nullable="false" />
+          <Property Name="AverageRating" Type="float" Nullable="false" />
+          <Property Name="Inactive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UploaderTimes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UploaderId" Type="bigint" Nullable="false" />
+          <Property Name="Start" Type="datetime" Nullable="false" />
+          <Property Name="End" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Videos">
+          <Key>
+            <PropertyRef Name="VideoId" />
+          </Key>
+          <Property Name="VideoId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UploaderId" Type="bigint" Nullable="false" />
+          <Property Name="DeviceId" Type="bigint" Nullable="false" />
+          <Property Name="LanguageId" Type="bigint" Nullable="false" />
+          <Property Name="Views" Type="bigint" Nullable="false" />
+          <Property Name="Blocked" Type="bit" Nullable="false" />
+          <Property Name="Url" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SubUrl" Type="nvarchar(max)" />
+          <Property Name="Price" Type="money" Nullable="false" />
+          <Property Name="Approved" Type="bit" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="AverageRating" Type="float" Nullable="false" />
+          <Property Name="Duration" Type="float" Nullable="false" />
+          <Property Name="Disabled" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Views">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="VideoId" Type="bigint" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Devices__DeviceB__4316F928">
+          <End Role="DeviceBrands" Type="Self.DeviceBrands" Multiplicity="1" />
+          <End Role="Devices" Type="Self.Devices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeviceBrands">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Devices">
+              <PropertyRef Name="DeviceBrandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Devices__DeviceT__02FC7413">
+          <End Role="DeviceTypes" Type="Self.DeviceTypes" Multiplicity="1" />
+          <End Role="Devices" Type="Self.Devices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeviceTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Devices">
+              <PropertyRef Name="DeviceTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Feedbacks__IP_Ad__336AA144">
+          <End Role="Seniors" Type="Self.Seniors" Multiplicity="1" />
+          <End Role="Feedbacks" Type="Self.Feedbacks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seniors">
+              <PropertyRef Name="IP_Address" />
+            </Principal>
+            <Dependent Role="Feedbacks">
+              <PropertyRef Name="IP_Address" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Feedbacks__Video__345EC57D">
+          <End Role="Videos" Type="Self.Videos" Multiplicity="1" />
+          <End Role="Feedbacks" Type="Self.Feedbacks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Videos">
+              <PropertyRef Name="VideoId" />
+            </Principal>
+            <Dependent Role="Feedbacks">
+              <PropertyRef Name="VideoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Income__BuyerId__6ABAD62E">
+          <End Role="Buyers" Type="Self.Buyers" Multiplicity="1" />
+          <End Role="Income" Type="Self.Income" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Buyers">
+              <PropertyRef Name="BuyerId" />
+            </Principal>
+            <Dependent Role="Income">
+              <PropertyRef Name="BuyerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Income__VideoId__69C6B1F5">
+          <End Role="Videos" Type="Self.Videos" Multiplicity="1" />
+          <End Role="Income" Type="Self.Income" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Videos">
+              <PropertyRef Name="VideoId" />
+            </Principal>
+            <Dependent Role="Income">
+              <PropertyRef Name="VideoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Uploaders__Langu__619B8048">
+          <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+          <End Role="UploaderLanguages" Type="Self.UploaderLanguages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UploaderLanguages">
+              <PropertyRef Name="LanguageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Uploaders__Uploa__60A75C0F">
+          <End Role="Uploaders" Type="Self.Uploaders" Multiplicity="1" />
+          <End Role="UploaderLanguages" Type="Self.UploaderLanguages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uploaders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UploaderLanguages">
+              <PropertyRef Name="UploaderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UploaderT__Uploa__308E3499">
+          <End Role="Uploaders" Type="Self.Uploaders" Multiplicity="1" />
+          <End Role="UploaderTimes" Type="Self.UploaderTimes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uploaders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UploaderTimes">
+              <PropertyRef Name="UploaderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Videos__DeviceId__55009F39">
+          <End Role="Devices" Type="Self.Devices" Multiplicity="1" />
+          <End Role="Videos" Type="Self.Videos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Devices">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Videos">
+              <PropertyRef Name="DeviceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Videos__Language__55F4C372">
+          <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+          <End Role="Videos" Type="Self.Videos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Videos">
+              <PropertyRef Name="LanguageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Videos__Uploader__540C7B00">
+          <End Role="Uploaders" Type="Self.Uploaders" Multiplicity="1" />
+          <End Role="Videos" Type="Self.Videos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uploaders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Videos">
+              <PropertyRef Name="UploaderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Views__VideoId__625A9A57">
+          <End Role="Videos" Type="Self.Videos" Multiplicity="1" />
+          <End Role="Views" Type="Self.Views" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Videos">
+              <PropertyRef Name="VideoId" />
+            </Principal>
+            <Dependent Role="Views">
+              <PropertyRef Name="VideoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DeviceVideosDBModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Buyers" EntityType="Self.Buyers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DeviceBrands" EntityType="Self.DeviceBrands" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Devices" EntityType="Self.Devices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DeviceTypes" EntityType="Self.DeviceTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Feedbacks" EntityType="Self.Feedbacks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Income" EntityType="Self.Income" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Languages" EntityType="Self.Languages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Seniors" EntityType="Self.Seniors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UploaderLanguages" EntityType="Self.UploaderLanguages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Uploaders" EntityType="Self.Uploaders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UploaderTimes" EntityType="Self.UploaderTimes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Videos" EntityType="Self.Videos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Views" EntityType="Self.Views" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Devices__DeviceB__4316F928" Association="Self.FK__Devices__DeviceB__4316F928">
+            <End Role="DeviceBrands" EntitySet="DeviceBrands" />
+            <End Role="Devices" EntitySet="Devices" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Devices__DeviceT__02FC7413" Association="Self.FK__Devices__DeviceT__02FC7413">
+            <End Role="DeviceTypes" EntitySet="DeviceTypes" />
+            <End Role="Devices" EntitySet="Devices" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Feedbacks__IP_Ad__336AA144" Association="Self.FK__Feedbacks__IP_Ad__336AA144">
+            <End Role="Seniors" EntitySet="Seniors" />
+            <End Role="Feedbacks" EntitySet="Feedbacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Feedbacks__Video__345EC57D" Association="Self.FK__Feedbacks__Video__345EC57D">
+            <End Role="Videos" EntitySet="Videos" />
+            <End Role="Feedbacks" EntitySet="Feedbacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Income__BuyerId__6ABAD62E" Association="Self.FK__Income__BuyerId__6ABAD62E">
+            <End Role="Buyers" EntitySet="Buyers" />
+            <End Role="Income" EntitySet="Income" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Income__VideoId__69C6B1F5" Association="Self.FK__Income__VideoId__69C6B1F5">
+            <End Role="Videos" EntitySet="Videos" />
+            <End Role="Income" EntitySet="Income" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Uploaders__Langu__619B8048" Association="Self.FK__Uploaders__Langu__619B8048">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="UploaderLanguages" EntitySet="UploaderLanguages" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Uploaders__Uploa__60A75C0F" Association="Self.FK__Uploaders__Uploa__60A75C0F">
+            <End Role="Uploaders" EntitySet="Uploaders" />
+            <End Role="UploaderLanguages" EntitySet="UploaderLanguages" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UploaderT__Uploa__308E3499" Association="Self.FK__UploaderT__Uploa__308E3499">
+            <End Role="Uploaders" EntitySet="Uploaders" />
+            <End Role="UploaderTimes" EntitySet="UploaderTimes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Videos__DeviceId__55009F39" Association="Self.FK__Videos__DeviceId__55009F39">
+            <End Role="Devices" EntitySet="Devices" />
+            <End Role="Videos" EntitySet="Videos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Videos__Language__55F4C372" Association="Self.FK__Videos__Language__55F4C372">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="Videos" EntitySet="Videos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Videos__Uploader__540C7B00" Association="Self.FK__Videos__Uploader__540C7B00">
+            <End Role="Uploaders" EntitySet="Uploaders" />
+            <End Role="Videos" EntitySet="Videos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Views__VideoId__625A9A57" Association="Self.FK__Views__VideoId__625A9A57">
+            <End Role="Videos" EntitySet="Videos" />
+            <End Role="Views" EntitySet="Views" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DeviceVideosDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DeviceBrand">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Brand" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Devices" Relationship="Self.FK__Devices__DeviceB__4316F928" FromRole="DeviceBrands" ToRole="Devices" />
+        </EntityType>
+        <EntityType Name="Device">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DeviceTypeId" Type="Int64" Nullable="false" />
+          <Property Name="DeviceBrandId" Type="Int64" Nullable="false" />
+          <Property Name="Model" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="DeviceBrand" Relationship="Self.FK__Devices__DeviceB__4316F928" FromRole="Devices" ToRole="DeviceBrands" />
+          <NavigationProperty Name="DeviceType" Relationship="Self.FK__Devices__DeviceT__3E52440B" FromRole="Devices" ToRole="DeviceTypes" />
+          <NavigationProperty Name="Videos" Relationship="DeviceVideosDBModel.FK__Videos__DeviceId__55009F39" FromRole="Device" ToRole="Video" />
+        </EntityType>
+        <EntityType Name="DeviceType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Devices" Relationship="Self.FK__Devices__DeviceT__3E52440B" FromRole="DeviceTypes" ToRole="Devices" />
+        </EntityType>
+        <EntityType Name="UploaderTime">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="UploaderId" Type="Int64" Nullable="false" />
+          <Property Name="Start" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="End" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Uploader" Relationship="DeviceVideosDBModel.FK__UploaderT__Uploa__308E3499" FromRole="UploaderTime" ToRole="Uploader" />
+        </EntityType>
+        <Association Name="FK__Devices__DeviceB__4316F928">
+          <End Role="DeviceBrands" Type="Self.DeviceBrand" Multiplicity="1" />
+          <End Role="Devices" Type="Self.Device" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeviceBrands">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Devices">
+              <PropertyRef Name="DeviceBrandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Devices__DeviceT__3E52440B">
+          <End Role="DeviceTypes" Type="Self.DeviceType" Multiplicity="1" />
+          <End Role="Devices" Type="Self.Device" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeviceTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Devices">
+              <PropertyRef Name="DeviceTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DeviceVideosDBEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DeviceBrands" EntityType="Self.DeviceBrand" />
+          <EntitySet Name="Devices" EntityType="Self.Device" />
+          <EntitySet Name="DeviceTypes" EntityType="Self.DeviceType" />
+          <EntitySet Name="UploaderTimes" EntityType="Self.UploaderTime" />
+          <AssociationSet Name="FK__Devices__DeviceB__4316F928" Association="Self.FK__Devices__DeviceB__4316F928">
+            <End Role="DeviceBrands" EntitySet="DeviceBrands" />
+            <End Role="Devices" EntitySet="Devices" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Devices__DeviceT__3E52440B" Association="Self.FK__Devices__DeviceT__3E52440B">
+            <End Role="DeviceTypes" EntitySet="DeviceTypes" />
+            <End Role="Devices" EntitySet="Devices" />
+          </AssociationSet>
+          <EntitySet Name="Languages" EntityType="DeviceVideosDBModel.Language" />
+          <EntitySet Name="Views" EntityType="DeviceVideosDBModel.View" />
+          <EntitySet Name="Feedbacks" EntityType="DeviceVideosDBModel.Feedback" />
+          <EntitySet Name="Seniors" EntityType="DeviceVideosDBModel.Senior" />
+          <AssociationSet Name="FK__Feedbacks__IP_Ad__0880433F" Association="DeviceVideosDBModel.FK__Feedbacks__IP_Ad__0880433F">
+            <End Role="Senior" EntitySet="Seniors" />
+            <End Role="Feedback" EntitySet="Feedbacks" />
+          </AssociationSet>
+          <EntitySet Name="Admins" EntityType="DeviceVideosDBModel.Admin" />
+          <EntitySet Name="Buyers" EntityType="DeviceVideosDBModel.Buyer" />
+          <EntitySet Name="Incomes" EntityType="DeviceVideosDBModel.Income" />
+          <AssociationSet Name="FK__Income__BuyerId__6ABAD62E" Association="DeviceVideosDBModel.FK__Income__BuyerId__6ABAD62E">
+            <End Role="Buyer" EntitySet="Buyers" />
+            <End Role="Income" EntitySet="Incomes" />
+          </AssociationSet>
+          <EntitySet Name="Uploaders" EntityType="DeviceVideosDBModel.Uploader" />
+          <AssociationSet Name="FK__UploaderT__Uploa__308E3499" Association="DeviceVideosDBModel.FK__UploaderT__Uploa__308E3499">
+            <End Role="Uploader" EntitySet="Uploaders" />
+            <End Role="UploaderTime" EntitySet="UploaderTimes" />
+          </AssociationSet>
+          <AssociationSet Name="UploaderLanguages" Association="DeviceVideosDBModel.UploaderLanguages">
+            <End Role="Language" EntitySet="Languages" />
+            <End Role="Uploader" EntitySet="Uploaders" />
+          </AssociationSet>
+          <EntitySet Name="Videos" EntityType="DeviceVideosDBModel.Video" />
+          <AssociationSet Name="FK__Videos__DeviceId__55009F39" Association="DeviceVideosDBModel.FK__Videos__DeviceId__55009F39">
+            <End Role="Device" EntitySet="Devices" />
+            <End Role="Video" EntitySet="Videos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Feedbacks__Video__345EC57D" Association="DeviceVideosDBModel.FK__Feedbacks__Video__345EC57D">
+            <End Role="Video" EntitySet="Videos" />
+            <End Role="Feedback" EntitySet="Feedbacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Income__VideoId__69C6B1F5" Association="DeviceVideosDBModel.FK__Income__VideoId__69C6B1F5">
+            <End Role="Video" EntitySet="Videos" />
+            <End Role="Income" EntitySet="Incomes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Videos__Language__55F4C372" Association="DeviceVideosDBModel.FK__Videos__Language__55F4C372">
+            <End Role="Language" EntitySet="Languages" />
+            <End Role="Video" EntitySet="Videos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Videos__Uploader__540C7B00" Association="DeviceVideosDBModel.FK__Videos__Uploader__540C7B00">
+            <End Role="Uploader" EntitySet="Uploaders" />
+            <End Role="Video" EntitySet="Videos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Views__VideoId__625A9A57" Association="DeviceVideosDBModel.FK__Views__VideoId__625A9A57">
+            <End Role="Video" EntitySet="Videos" />
+            <End Role="View" EntitySet="Views" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LanguageName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Uploaders" Relationship="DeviceVideosDBModel.UploaderLanguages" FromRole="Language" ToRole="Uploader" />
+          <NavigationProperty Name="Videos" Relationship="DeviceVideosDBModel.FK__Videos__Language__55F4C372" FromRole="Language" ToRole="Video" />
+        </EntityType>
+        <EntityType Name="View">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="VideoId" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Video" Relationship="DeviceVideosDBModel.FK__Views__VideoId__625A9A57" FromRole="View" ToRole="Video" />
+        </EntityType>
+        <EntityType Name="Feedback">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="IP_Address" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VideoId" Type="Int64" Nullable="false" />
+          <Property Name="PauseCount" Type="Int64" Nullable="false" />
+          <Property Name="BackCount" Type="Int64" Nullable="false" />
+          <Property Name="Stars" Type="Int32" Nullable="false" />
+          <Property Name="Finish" Type="Int64" Nullable="false" />
+          <Property Name="MinutesStopped" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Senior" Relationship="DeviceVideosDBModel.FK__Feedbacks__IP_Ad__0880433F" FromRole="Feedback" ToRole="Senior" />
+          <NavigationProperty Name="Video" Relationship="DeviceVideosDBModel.FK__Feedbacks__Video__345EC57D" FromRole="Feedback" ToRole="Video" />
+        </EntityType>
+        <EntityType Name="Senior">
+          <Key>
+            <PropertyRef Name="IP_Address" />
+          </Key>
+          <Property Name="IP_Address" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Feedbacks" Relationship="DeviceVideosDBModel.FK__Feedbacks__IP_Ad__0880433F" FromRole="Senior" ToRole="Feedback" />
+        </EntityType>
+        <Association Name="FK__Feedbacks__IP_Ad__0880433F">
+          <End Type="DeviceVideosDBModel.Senior" Role="Senior" Multiplicity="1" />
+          <End Type="DeviceVideosDBModel.Feedback" Role="Feedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Senior">
+              <PropertyRef Name="IP_Address" />
+            </Principal>
+            <Dependent Role="Feedback">
+              <PropertyRef Name="IP_Address" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Buyer">
+          <Key>
+            <PropertyRef Name="BuyerId" />
+          </Key>
+          <Property Name="BuyerId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreditCardNumbers" Type="Int32" Nullable="false" />
+          <Property Name="Token" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Incomes" Relationship="DeviceVideosDBModel.FK__Income__BuyerId__6ABAD62E" FromRole="Buyer" ToRole="Income" />
+        </EntityType>
+        <EntityType Name="Income">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VideoId" Type="Int64" Nullable="false" />
+          <Property Name="BuyerId" Type="Int64" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Buyer" Relationship="DeviceVideosDBModel.FK__Income__BuyerId__6ABAD62E" FromRole="Income" ToRole="Buyer" />
+          <NavigationProperty Name="Video" Relationship="DeviceVideosDBModel.FK__Income__VideoId__69C6B1F5" FromRole="Income" ToRole="Video" />
+        </EntityType>
+        <Association Name="FK__Income__BuyerId__6ABAD62E">
+          <End Type="DeviceVideosDBModel.Buyer" Role="Buyer" Multiplicity="1" />
+          <End Type="DeviceVideosDBModel.Income" Role="Income" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Buyer">
+              <PropertyRef Name="BuyerId" />
+            </Principal>
+            <Dependent Role="Income">
+              <PropertyRef Name="BuyerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Uploader">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Firstname" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Surname" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Support" Type="Boolean" Nullable="false" />
+          <Property Name="Timezone" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Earnings" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="AverageRating" Type="Double" Nullable="false" />
+          <NavigationProperty Name="UploaderTimes" Relationship="DeviceVideosDBModel.FK__UploaderT__Uploa__308E3499" FromRole="Uploader" ToRole="UploaderTime" />
+          <NavigationProperty Name="Languages" Relationship="DeviceVideosDBModel.UploaderLanguages" FromRole="Uploader" ToRole="Language" />
+          <NavigationProperty Name="Videos" Relationship="DeviceVideosDBModel.FK__Videos__Uploader__540C7B00" FromRole="Uploader" ToRole="Video" />
+          <Property Name="Inactive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__UploaderT__Uploa__308E3499">
+          <End Type="DeviceVideosDBModel.Uploader" Role="Uploader" Multiplicity="1" />
+          <End Type="DeviceVideosDBModel.UploaderTime" Role="UploaderTime" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uploader">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UploaderTime">
+              <PropertyRef Name="UploaderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UploaderLanguages">
+          <End Type="DeviceVideosDBModel.Language" Role="Language" Multiplicity="*" />
+          <End Type="DeviceVideosDBModel.Uploader" Role="Uploader" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Video">
+          <Key>
+            <PropertyRef Name="VideoId" />
+          </Key>
+          <Property Name="VideoId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UploaderId" Type="Int64" Nullable="false" />
+          <Property Name="DeviceId" Type="Int64" Nullable="false" />
+          <Property Name="LanguageId" Type="Int64" Nullable="false" />
+          <Property Name="Views" Type="Int64" Nullable="false" />
+          <Property Name="Blocked" Type="Boolean" Nullable="false" />
+          <Property Name="Url" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SubUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Approved" Type="Boolean" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AverageRating" Type="Double" Nullable="false" />
+          <Property Name="Duration" Type="Double" Nullable="false" />
+          <Property Name="Disabled" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Device" Relationship="DeviceVideosDBModel.FK__Videos__DeviceId__55009F39" FromRole="Video" ToRole="Device" />
+          <NavigationProperty Name="Feedbacks" Relationship="DeviceVideosDBModel.FK__Feedbacks__Video__345EC57D" FromRole="Video" ToRole="Feedback" />
+          <NavigationProperty Name="Incomes" Relationship="DeviceVideosDBModel.FK__Income__VideoId__69C6B1F5" FromRole="Video" ToRole="Income" />
+          <NavigationProperty Name="Language" Relationship="DeviceVideosDBModel.FK__Videos__Language__55F4C372" FromRole="Video" ToRole="Language" />
+          <NavigationProperty Name="Uploader" Relationship="DeviceVideosDBModel.FK__Videos__Uploader__540C7B00" FromRole="Video" ToRole="Uploader" />
+          <NavigationProperty Name="Views1" Relationship="DeviceVideosDBModel.FK__Views__VideoId__625A9A57" FromRole="Video" ToRole="View" />
+        </EntityType>
+        <Association Name="FK__Videos__DeviceId__55009F39">
+          <End Type="DeviceVideosDBModel.Device" Role="Device" Multiplicity="1" />
+          <End Type="DeviceVideosDBModel.Video" Role="Video" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Device">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Video">
+              <PropertyRef Name="DeviceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Feedbacks__Video__345EC57D">
+          <End Type="DeviceVideosDBModel.Video" Role="Video" Multiplicity="1" />
+          <End Type="DeviceVideosDBModel.Feedback" Role="Feedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Video">
+              <PropertyRef Name="VideoId" />
+            </Principal>
+            <Dependent Role="Feedback">
+              <PropertyRef Name="VideoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Income__VideoId__69C6B1F5">
+          <End Type="DeviceVideosDBModel.Video" Role="Video" Multiplicity="1" />
+          <End Type="DeviceVideosDBModel.Income" Role="Income" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Video">
+              <PropertyRef Name="VideoId" />
+            </Principal>
+            <Dependent Role="Income">
+              <PropertyRef Name="VideoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Videos__Language__55F4C372">
+          <End Type="DeviceVideosDBModel.Language" Role="Language" Multiplicity="1" />
+          <End Type="DeviceVideosDBModel.Video" Role="Video" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Video">
+              <PropertyRef Name="LanguageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Videos__Uploader__540C7B00">
+          <End Type="DeviceVideosDBModel.Uploader" Role="Uploader" Multiplicity="1" />
+          <End Type="DeviceVideosDBModel.Video" Role="Video" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uploader">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Video">
+              <PropertyRef Name="UploaderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Views__VideoId__625A9A57">
+          <End Type="DeviceVideosDBModel.Video" Role="Video" Multiplicity="1" />
+          <End Type="DeviceVideosDBModel.View" Role="View" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Video">
+              <PropertyRef Name="VideoId" />
+            </Principal>
+            <Dependent Role="View">
+              <PropertyRef Name="VideoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DeviceVideosDBModelStoreContainer" CdmEntityContainer="DeviceVideosDBEntities1">
+          <EntitySetMapping Name="DeviceBrands">
+            <EntityTypeMapping TypeName="DeviceVideosDBModel.DeviceBrand">
+              <MappingFragment StoreEntitySet="DeviceBrands">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Devices">
+            <EntityTypeMapping TypeName="DeviceVideosDBModel.Device">
+              <MappingFragment StoreEntitySet="Devices">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DeviceTypeId" ColumnName="DeviceTypeId" />
+                <ScalarProperty Name="DeviceBrandId" ColumnName="DeviceBrandId" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeviceTypes">
+            <EntityTypeMapping TypeName="DeviceVideosDBModel.DeviceType">
+              <MappingFragment StoreEntitySet="DeviceTypes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UploaderTimes">
+            <EntityTypeMapping TypeName="DeviceVideosDBModel.UploaderTime">
+              <MappingFragment StoreEntitySet="UploaderTimes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UploaderId" ColumnName="UploaderId" />
+                <ScalarProperty Name="Start" ColumnName="Start" />
+                <ScalarProperty Name="End" ColumnName="End" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Languages">
+            <EntityTypeMapping TypeName="DeviceVideosDBModel.Language">
+              <MappingFragment StoreEntitySet="Languages">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="LanguageName" ColumnName="LanguageName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Views">
+            <EntityTypeMapping TypeName="DeviceVideosDBModel.View">
+              <MappingFragment StoreEntitySet="Views">
+                <ScalarProperty Name="VideoId" ColumnName="VideoId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Feedbacks">
+            <EntityTypeMapping TypeName="DeviceVideosDBModel.Feedback">
+              <MappingFragment StoreEntitySet="Feedbacks">
+                <ScalarProperty Name="MinutesStopped" ColumnName="MinutesStopped" />
+                <ScalarProperty Name="Finish" ColumnName="Finish" />
+                <ScalarProperty Name="Stars" ColumnName="Stars" />
+                <ScalarProperty Name="BackCount" ColumnName="BackCount" />
+                <ScalarProperty Name="PauseCount" ColumnName="PauseCount" />
+                <ScalarProperty Name="VideoId" ColumnName="VideoId" />
+                <ScalarProperty Name="IP_Address" ColumnName="IP_Address" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Seniors">
+            <EntityTypeMapping TypeName="DeviceVideosDBModel.Senior">
+              <MappingFragment StoreEntitySet="Seniors">
+                <ScalarProperty Name="IP_Address" ColumnName="IP_Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="DeviceVideosDBModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Buyers">
+            <EntityTypeMapping TypeName="DeviceVideosDBModel.Buyer">
+              <MappingFragment StoreEntitySet="Buyers">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="CreditCardNumbers" ColumnName="CreditCardNumbers" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="BuyerId" ColumnName="BuyerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Incomes">
+            <EntityTypeMapping TypeName="DeviceVideosDBModel.Income">
+              <MappingFragment StoreEntitySet="Income">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="BuyerId" ColumnName="BuyerId" />
+                <ScalarProperty Name="VideoId" ColumnName="VideoId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Uploaders">
+            <EntityTypeMapping TypeName="DeviceVideosDBModel.Uploader">
+              <MappingFragment StoreEntitySet="Uploaders">
+                <ScalarProperty Name="Inactive" ColumnName="Inactive" />
+                <ScalarProperty Name="AverageRating" ColumnName="AverageRating" />
+                <ScalarProperty Name="Earnings" ColumnName="Earnings" />
+                <ScalarProperty Name="Timezone" ColumnName="Timezone" />
+                <ScalarProperty Name="Support" ColumnName="Support" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="UploaderLanguages" TypeName="DeviceVideosDBModel.UploaderLanguages" StoreEntitySet="UploaderLanguages">
+            <EndProperty Name="Uploader">
+              <ScalarProperty Name="Id" ColumnName="UploaderId" />
+            </EndProperty>
+            <EndProperty Name="Language">
+              <ScalarProperty Name="Id" ColumnName="LanguageId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="Videos">
+            <EntityTypeMapping TypeName="DeviceVideosDBModel.Video">
+              <MappingFragment StoreEntitySet="Videos">
+                <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="AverageRating" ColumnName="AverageRating" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Approved" ColumnName="Approved" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="SubUrl" ColumnName="SubUrl" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Blocked" ColumnName="Blocked" />
+                <ScalarProperty Name="Views" ColumnName="Views" />
+                <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+                <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+                <ScalarProperty Name="UploaderId" ColumnName="UploaderId" />
+                <ScalarProperty Name="VideoId" ColumnName="VideoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

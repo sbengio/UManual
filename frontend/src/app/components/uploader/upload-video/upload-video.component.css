@@ -1,0 +1,153 @@
+mat-toolbar{
+    background: rgb(20,93,182);
+}
+#upload{
+    position: fixed;
+    left: 14%;
+}
+#noDevice{
+    color: navy;
+    margin: 2px;
+}
+p,ul{
+    font-size: large;
+}
+textarea{
+    white-space: pre-wrap;
+}
+#active,mat-card-title{
+    background: #ffb618;
+    color: black;
+}
+#btn{
+    font-size: larger;
+}
+#btn.mat-raised-button.mat-button-disabled:not([class*=mat-elevation-z]) {
+opacity: 0.5;
+}
+#btn1,#btn{
+    color: #ffb618;
+    background-color: rgb(20,93,182);
+    margin-top: 10px; 
+}
+mat-card{
+    background:#ffb618;
+    border-radius: 60px;
+    padding: 30px;
+    margin: 25px;
+}
+mat-card.card{
+    width: 450px;
+}
+#txt{
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+h3{
+    margin-bottom: 0px;
+}
+#txt2{
+    margin-top: 0px;
+}
+:host::ng-deep .mat-progress-spinner circle,
+:host::ng-deep .mat-spinner circle{
+    stroke: rgb(20,93,182);
+}
+h2,h3,
+:host::ng-deep .mat-form-field.mat-focused .mat-form-field-label,
+:host::ng-deep .mat-form-field.mat-focused .mat-form-field-label.mat-accent,
+:host::ng-deep .mat-form-field.mat-focused .mat-form-field-label .mat-form-field-required-marker,
+:host::ng-deep .mat-form-field-label,ul,p,
+:host::ng-deep .mat-input-element{
+    color: black;
+}
+:host::ng-deep .mat-form-field.mat-focused .mat-form-field-underline,
+:host::ng-deep .mat-form-field-ripple{
+    background-color: black !important;
+}
+::ng-deep .mat-option:hover:not(.mat-option-disabled),
+::ng-deep .mat-select-panel,
+::ng-deep .mat-primary .mat-option.mat-selected:not(.mat-option-disabled), 
+::ng-deep .mat-select-arrow,
+::ng-deep .mat-form-field .mat-select.mat-select-invalid .mat-select-arrow,
+::ng-deep.mat-form-field.mat-focused.mat-primary .mat-select-arrow{
+    background: #ffb618;
+    color: black;
+}
+::ng-deep .mat-select-value{
+    color: black;
+}
+::ng-deep .mat-option,
+::ng-deep .mat-option.mat-active,
+::ng-deep .mat-primary .mat-pseudo-checkbox-checked,
+::ng-deep .mat-pseudo-checkbox::after{
+    background: rgb(20,93,182);
+    color: white;
+}
+mat-sidenav {
+    margin: 16px;
+    width: 212px;
+    border-right: none;
+    background: rgb(20,93,182);
+    color: white;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+}
+.content {
+    height: calc(100vh - 98px);
+    border-radius: 10px;
+    margin: 16px;
+    margin-left: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: lightgray;
+    background-color: transparent;
+}
+mat-sidenav-container {
+    height: calc(100vh - 65px);
+    background: transparent;
+}
+.menu-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem; 
+}
+.menu-button mat-icon {
+    margin-right: 8px;
+}
+#logout{
+    left: 95%;
+    position: fixed;
+}
+.loading-indicator {
+  position: fixed;
+  z-index: 999;
+  height: 2em;
+  width: 20em;
+  overflow: show;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+/* Transparent Overlay */
+.loading-indicator:before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.3);
+} 
+#notifications{
+    left: 91%;
+    position: fixed;
+}

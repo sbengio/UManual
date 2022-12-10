@@ -1,0 +1,40 @@
+mat-toolbar{
+    background: rgb(20,93,182);
+}
+mat-card{
+    max-width: 600px;
+    max-height: 600px;
+    border-radius: 60px;
+    margin: 10em auto;
+    text-align: center;
+    background: #ffb618;
+    color: black;
+    overflow: visible;
+}
+.full-width{
+    width: 80%;
+}
+:host::ng-deep .mat-form-field.mat-focused .mat-form-field-label.mat-accent,
+:host::ng-deep .mat-form-field.mat-focused .mat-form-field-label .mat-form-field-required-marker,
+:host::ng-deep .mat-focused .mat-form-field-label,
+:host::ng-deep .mat-form-field-label,
+:host::ng-deep .mat-input-element{
+    color: black !important;
+}
+:host::ng-deep .mat-form-field.mat-focused .mat-form-field-underline,
+:host::ng-deep.mat-form-field-underline,
+:host::ng-deep.mat-form-field-ripple {
+    background-color: black !important;
+}
+button#submit{
+    background-color: rgb(20,93,182); 
+    margin: 5px;
+    margin-top: 0px;
+}
+#search{
+    position: fixed;
+    right: 3%;
+    background-color: #ffb618 !important;
+    color: black;
+}
+

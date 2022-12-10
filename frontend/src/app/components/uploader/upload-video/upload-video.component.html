@@ -1,0 +1,137 @@
+<mat-toolbar class="mat-elevation-z8">
+  <button mat-icon-button *ngIf="sidenav.mode==='over'" (click)="sidenav.toggle()">
+      <mat-icon *ngIf="!sidenav.opened">menu</mat-icon>
+      <mat-icon *ngIf="sidenav.opened">close</mat-icon>
+  </button>
+  <h1 id="upload">Upload a video</h1>
+  <button mat-icon-button (click)="blockedVideos()" id="notifications"><mat-icon [matBadge]="countBlockedVideos" matBadgeColor="warn" >notifications</mat-icon></button>
+  <button mat-icon-button id="logout" [routerLink]="['/login']">
+      <mat-icon>logout</mat-icon>
+  </button>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+      <button id="active" mat-raised-button class="menu-button" [routerLink]="['/upload']">
+          <mat-icon>video_call</mat-icon>
+          <span>Upload</span>
+      </button>
+      <button mat-button class="menu-button" [routerLink]="['/myuploads']">
+          <mat-icon>video_library</mat-icon>
+          <span>Videos</span>
+      </button>
+      <button mat-button class="menu-button" [routerLink]="['/stats']">
+          <mat-icon>bar_chart</mat-icon>
+          <span>Stats</span>
+      </button>
+      <button mat-button class="menu-button" [routerLink]="['/withdraws']">
+          <mat-icon>payment</mat-icon>
+          <span>Withdraw</span>
+      </button>
+      <button mat-button class="menu-button" [routerLink]="['/myprofile']">
+          <mat-icon>person</mat-icon>
+          <span>Profile</span>
+      </button>
+  </mat-sidenav>
+  <mat-sidenav-content>
+      <div class="content">
+          <mat-card class="mat-elevation-z8">
+            <mat-card-content>
+              <form (ngSubmit)="Upload()" name="uploadForm" [formGroup]="uploadForm">
+                <p>Video must comply to the rules below:</p>
+                <ul>
+                  <li>no flashing content</li>
+                  <li>clear speech - no mumbling and adequate pauses</li>
+                  <li>provide audio descriptions</li>
+                  <li>introduce yourself and surroundings</li>
+                  <li>high contrast color combinations</li>
+                  <li>no or very low background noise</li>
+                </ul>
+                  <div style="text-align: center;">
+                    <div>
+                    <mat-form-field class="full-width" appearance="fill">
+                      <mat-label>Device Type</mat-label>
+                      <input formControlName="type" matInput required/>
+                      <mat-error *ngIf="uploadForm.get('type')!.errors?.required&& uploadForm.get('type')!.touched ">
+                        Device Type is required
+                      </mat-error>
+                      <mat-error *ngIf="uploadForm.get('type')!.errors?.pattern &&!uploadForm.get('type')!.errors?.required&& uploadForm.get('type')!.touched ">
+                        Device Type must only contain letters
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Device Model</mat-label>
+                        <input formControlName="model" matInput required/>
+                        <mat-error *ngIf="uploadForm.get('model')!.errors?.required&& uploadForm.get('model')!.touched ">
+                          Device model is required
+                        </mat-error>
+                  </mat-form-field>
+                  </div>
+                  <div>
+                    <mat-form-field class="full-width" appearance="fill">
+                      <mat-label>Device Brand</mat-label>
+                      <input formControlName="brand" matInput required/>
+                      <mat-error *ngIf="uploadForm.get('brand')!.errors?.required&& uploadForm.get('brand')!.touched ">
+                        Device brand is required
+                      </mat-error>
+                      <mat-error *ngIf="uploadForm.get('brand')!.errors?.pattern&& !uploadForm.get('brand')!.errors?.required&& uploadForm.get('brand')!.dirty ">
+                        Device brand must only contain letters
+                      </mat-error>
+                  </mat-form-field>
+                  </div>
+                  <div>
+                    <mat-form-field class="full-width" appearance="fill">
+                      <mat-label>Video language</mat-label>
+                      <mat-select formControlName="language" required>
+                        <mat-option *ngFor="let lang of languages" [value]="lang" >
+                        {{lang.LanguageName}}
+                        </mat-option>
+                      </mat-select>
+                      <mat-error *ngIf="uploadForm.get('language')!.errors?.required&& uploadForm.get('language')!.touched ">
+                        Language is required
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+                  <div>
+                    <button type="button" id="btn1" mat-raised-button (click)="file.click()">Choose Video File *</button>
+                    <input type="file" hidden #file class="form-control file" accept="video/*" (change)="getFileDetails($event)">
+                  </div>
+                  <div>
+                    <button type="button" id="btn1" mat-raised-button (click)="file2.click()">Choose Subtitle File</button>
+                    <input hidden id="sub" type="file" #file2 class="form-control file" accept=".vtt,.srt,.dxfp,.scc,.sami" (change)="getFileDetailsSub($event)">
+                  </div> 
+                  <div id="noDevice"></div> 
+                  <div style="text-align: center;"><button id="btn" type="submit" mat-raised-button [disabled]="!isFull ||uploadForm.invalid">Upload</button></div>
+                  <h2 *ngIf="!showing && won" id="txt">
+                    <mat-icon>done_outline</mat-icon>
+                    Video has been uploaded!
+                  </h2>
+                  <h3 *ngIf="!showing && won">If no subtitle file attached, subtitles will be generated<br> and you can edit them</h3>
+                </form>
+                <div class="loading-indicator" *ngIf="showing"><mat-spinner></mat-spinner></div>
+                <video controls width="200px" height="200px" style="display: none;" #video></video> 
+          </mat-card-content>
+          </mat-card>
+          <mat-card *ngIf="won && noSubtitle" class="card">
+            <mat-card-title>Edit generated subtitles</mat-card-title>
+            <mat-card-content>
+              <form (ngSubmit)="uploadSubtitle()" name="uploadSubtitleForm" [formGroup]="uploadSubtitleForm">
+              <mat-form-field>
+                <textarea matInput formControlName="subtitle" cols="30" rows="29"></textarea>
+              </mat-form-field>
+              <div style="text-align: center;"><button id="btn" type="submit" mat-flat-button>Upload subtitles</button></div>
+              <h2 *ngIf="!showing &&updated" id="txt">
+                <mat-icon>done_outline</mat-icon>
+                Subtitles have been uploaded! 
+              </h2>
+              <h2 *ngIf="!showing &&updated" id="txt2">Want to upload again?
+                <a (click)="reset()">click here</a>
+              </h2>
+            </form>
+            </mat-card-content>
+          </mat-card>
+</div>
+</mat-sidenav-content>
+</mat-sidenav-container>

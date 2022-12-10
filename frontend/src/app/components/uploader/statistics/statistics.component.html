@@ -1,0 +1,56 @@
+<mat-toolbar class="mat-elevation-z8">
+    <button mat-icon-button *ngIf="sidenav.mode==='over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">menu</mat-icon>
+        <mat-icon *ngIf="sidenav.opened">close</mat-icon>
+    </button>
+    <h1 id="upload">Statistics</h1>
+    <button mat-button (click)="blockedVideos()" id="notifications"><mat-icon [matBadge]="countBlockedVideos" matBadgeColor="warn" >notifications</mat-icon></button>
+    <button mat-button id="logout" [routerLink]="['/login']">
+        <mat-icon>logout</mat-icon>
+    </button>
+</mat-toolbar>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8" >
+        <button mat-button class="menu-button"[routerLink]="['/upload']">
+            <mat-icon>video_call</mat-icon>
+            <span>Upload</span>
+        </button>
+        <button mat-button class="menu-button" [routerLink]="['/myuploads']">
+            <mat-icon>video_library</mat-icon>
+            <span>Videos</span>
+        </button>
+        <button mat-button class="menu-button" id="active">
+            <mat-icon>bar_chart</mat-icon>
+            <span>Stats</span>
+        </button>
+        <button mat-button class="menu-button" [routerLink]="['/withdraws']">
+            <mat-icon>payment</mat-icon>
+            <span>Withdraw</span>
+        </button>
+        <button mat-button class="menu-button" [routerLink]="['/myprofile']">
+            <mat-icon>person</mat-icon>
+            <span>Profile</span>
+        </button>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content">
+                <mat-card class="example-card  mat-elevation-z0">
+                    <mat-card-header>
+                    <mat-card-title>Yearly views</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                            <canvas id="canvas" width="550" height="450">{{ chart }}</canvas>
+                    </mat-card-content>
+                </mat-card>
+                <br>
+                <mat-card class="example-card  mat-elevation-z0">
+                    <mat-card-header>
+                    <mat-card-title>Yearly earnings</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                            <canvas id="canvas2"  width="550" height="450">{{ chart2 }}</canvas>
+                    </mat-card-content>
+                </mat-card>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,43 @@
+<h1 mat-dialog-title>Your credit card details</h1>
+<mat-dialog-content [formGroup]="WithdrawForm">
+        <div style="margin-top: 15px;">
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Card holder name</mat-label>
+            <input formControlName="name" matInput required/>
+            <mat-error *ngIf="WithdrawForm.get('name')!.errors?.required&& WithdrawForm.get('name')!.touched ">
+              Card holder name is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Card number</mat-label>
+            <input formControlName="number" matInput required/>
+            <mat-error *ngIf="WithdrawForm.get('number')!.errors?.required&& WithdrawForm.get('number')!.touched">
+              Card number is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="full-width" appearance="fill">
+              <mat-label>Expiry date</mat-label>
+              <input formControlName="date" type="month" matInput required/>
+              <mat-error *ngIf="WithdrawForm.get('date')!.errors?.required&& WithdrawForm.get('date')!.touched">
+                Expiry date is required
+              </mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label>CVV</mat-label>
+            <input formControlName="cvv" matInput required/>
+            <mat-error *ngIf="WithdrawForm.get('cvv')!.errors?.required&& WithdrawForm.get('cvv')!.touched">
+              CVV is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+        <button mat-raised-button (click)="close()">Cancel</button>
+        <button mat-raised-button type="submit" mat-primary (click)="close()">Withdraw</button>
+</mat-dialog-actions>

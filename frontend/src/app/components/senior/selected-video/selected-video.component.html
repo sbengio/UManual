@@ -1,0 +1,114 @@
+<div lang="en" style="position: relative;">
+<div [style.padding-bottom]="4*(marginl+marginxl+marginxxl)+98+'px'">
+<header id="flex-container">
+<h1 id="title" [style.font-size]="LargeFs+LargerFs+XLargeFs+35+'px'"><strong>{{title}}</strong></h1>
+<a role="button" id="btnsearch" mat-raised-button [style.padding]="LargeFs+LargerFs+XLargeFs+'px'" [style.padding-right]="16+'px'" [style.padding-left]="16+'px'" [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'" (click)="gotosearch()">
+  <mat-icon>search</mat-icon>
+  back to search
+</a></header>
+<main>
+<mat-card class="container2 mat-elevation-z0" role="grid" aria-label="Change font size" *ngIf="invisible">
+  <div class="row" role="row">
+  <div class="col" role="gridcell">
+    <button aria-label="increase font size by 6 pixels" class="font" mat-raised-button id="font1" (click)="large()">A</button>
+  </div>
+  <div class="col" role="gridcell">
+    <button aria-label="increase font size by 10 pixels" class="font" mat-raised-button id="font2" (click)="larger()">A</button>
+  </div>
+  <div class="col" role="gridcell">
+  <button aria-label="increase font size by 14 pixels" class="font" mat-raised-button id="font3" (click)="x_large()">A</button> 
+  </div>
+  </div>
+</mat-card>
+<div id="video_player_box">
+  <figure>
+    <video controls #videoPlayer id="vid" preload="metadata" (ended)="feedback($event)" (pause)="feedback($event)" crossorigin="anonymous">
+      <source [src]="link" type="video/mp4">
+      <track [src]="link3" #subtitle default kind="subtitles" [srclang]="lang">
+    </video>
+  <progress id="seekslider" #seekslider value="0" min="0" max="100" aria-label="video progress"></progress>
+  <div id="video_controls_bar">
+    <button role="button" id="back" class="icon" aria-label="go back 10 seconds" [style.width]="LargeFs+LargerFs+XLargeFs+48+'px'" [style.height]="LargeFs+LargerFs+XLargeFs+48+'px'" [style.background-size]="LargeFs+LargerFs+XLargeFs+48+'px'"></button>
+    <button role="button" id="playpausebtn" class="icon" aria-label="play video" [style.width]="LargeFs+LargerFs+XLargeFs+48+'px'" [style.height]="LargeFs+LargerFs+XLargeFs+48+'px'" [style.background-size]="LargeFs+LargerFs+XLargeFs+48+'px'"></button>
+    <button role="button" id="forward" class="icon" aria-label="go forward 10 seconds" [style.width]="LargeFs+LargerFs+XLargeFs+48+'px'" [style.height]="LargeFs+LargerFs+XLargeFs+48+'px'" [style.background-size]="LargeFs+LargerFs+XLargeFs+48+'px'"></button>
+    <div role="note" tabindex="-1" aria-label="current time" #curtimetext id="time" [style.font-size]="LargeFs+LargerFs+XLargeFs+24+'px'">00:00</div><span role="note" id="time1" tabindex="-1" aria-hidden="true" [style.font-size]="LargeFs+LargerFs+XLargeFs+24+'px'">/</span><div role="note" tabindex="-1" aria-label="duration" id="time2" #durtimetext [style.font-size]="LargeFs+LargerFs+XLargeFs+24+'px'">00:00</div>
+    <button role="button" id="mutebtn" class="icon" aria-pressed="false" aria-label="mute video" [style.width]="LargeFs+LargerFs+XLargeFs+48+'px'" [style.height]="LargeFs+LargerFs+XLargeFs+48+'px'" [style.background-size]="LargeFs+LargerFs+XLargeFs+48+'px'"></button>
+    <div class="wrapper" >
+      <input id="volumeslider" #volumeslider type="range" min="0" max="100" value="100" step="1" aria-valuemin="0" aria-valuenow="100" aria-valuemax="100" >
+      <label class="visually-hidden" for="volumeslider">Volume</label>
+    </div>    
+    <button role="button" id="slow" class="speed" [style.width]="LargeFs+LargerFs+largebox+77+'px'" [style.height]="LargeFs+LargerFs+XLargeFs+40+'px'" [style.background-size]="LargeFs+LargerFs+XLargeFs+48+'px'" [style.font-size]="LargeFs+LargerFs+XLargeFs+20+'px'">slower</button>
+    <button role="button" id="fast" class="speed" [style.width]="LargeFs+LargerFs+largebox+67+'px'" [style.height]="LargeFs+LargerFs+XLargeFs+40+'px'" [style.background-size]="LargeFs+LargerFs+XLargeFs+48+'px'" [style.font-size]="LargeFs+LargerFs+XLargeFs+20+'px'">faster</button>
+    <button role="button" id="captions" class="icon" aria-pressed="true" aria-label="disable subtitles" [style.width]="LargeFs+LargerFs+XLargeFs+48+'px'" [style.height]="LargeFs+LargerFs+XLargeFs+48+'px'" [style.background-size]="LargeFs+LargerFs+XLargeFs+48+'px'"></button>
+    <button role="button" id="fullscreenbtn" class="icon" aria-pressed="false" aria-label="Full screen" [style.width]="LargeFs+LargerFs+XLargeFs+48+'px'" [style.height]="LargeFs+LargerFs+XLargeFs+48+'px'" [style.background-size]="LargeFs+LargerFs+XLargeFs+48+'px'"></button>
+  </div>
+  </figure>
+</div>
+<section id="transcript" aria-labelledby="Vidtranscript">
+  <h2 [style.font-size]="LargeFs+LargerFs+XLargeFs+20+'px'" id="Vidtranscript">Video transcript</h2>
+  <p style="white-space: pre-wrap;" [lang]="navlang" [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'" id="tr">{{t}}</p>
+</section> 
+<button role="button" id="btn" mat-raised-button [style.padding]="LargeFs+LargerFs+XLargeFs+'px'" [style.padding-right]="16+'px'" [style.padding-left]="16+'px'" [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'" [printStyle]="{p: {'font-size':'30px'}}" printSectionId="tr" ngxPrint printTitle="Video transcript of device">
+  <mat-icon>print</mat-icon>
+  print transcript
+</button>
+<div id="layout"> 
+<div id="slayout">
+<mat-card id="sup" *ngIf="support" [style.width]="LargeFs+LargerFs+XLargeFs+largebox2+300+'px'" aria-label="support details">
+  <mat-card-title [style.font-size]="LargeFs+LargerFs+XLargeFs+24+'px'">
+    <mat-card-avatar><mat-icon>help_outline</mat-icon></mat-card-avatar> 
+    Telephone Support 
+  </mat-card-title>
+  <mat-card-content [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'">
+  <p>call {{uploadername}} at {{phone}}</p>
+  <p>speaks these languages: </p>
+  <ul *ngFor="let lang of languages">
+    <li>{{lang.LanguageName}}</li>
+  </ul>
+  </mat-card-content>
+</mat-card> 
+<mat-card id="sup" *ngIf="!support" aria-label="support details" [style.width]="LargeFs+LargerFs+XLargeFs+largebox2+300+'px'">
+  <mat-card-title [style.font-size]="LargeFs+LargerFs+XLargeFs+24+'px'">
+    <mat-card-avatar>
+      <mat-icon>help_outline</mat-icon>
+    </mat-card-avatar>
+    No available support
+  </mat-card-title>
+  <mat-card-content [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'"*ngIf="!nosupport">
+  <p>uploader available at these times:</p>
+  <ul *ngFor="let time of upTimes">
+    <li>{{time.Start|date:'HH:mm'}} to {{time.End|date:'HH:mm'}}</li>
+  </ul>
+  </mat-card-content>
+</mat-card>
+<br/>
+<fieldset class="star-rating">
+  <legend [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'">Rate this video:</legend>
+    <div>
+      <input type="radio" name="rating" value="1" id="rating1"/>
+      <label for="rating1"><span>1</span></label>
+      <input type="radio" name="rating" value="2" id="rating2"/>
+      <label for="rating2"><span>2</span></label>
+      <input type="radio" name="rating" value="3" id="rating3"/>
+      <label for="rating3"><span>3</span></label>
+      <input type="radio" name="rating" value="4" id="rating4"/>
+      <label for="rating4"><span>4</span></label>
+      <input type="radio" name="rating" value="5" id="rating5"/>
+      <label for="rating5"><span>5</span></label>
+    </div>
+</fieldset>
+</div>
+<a role="button" id="btnhistory" mat-raised-button [style.padding]="LargeFs+LargerFs+XLargeFs+'px'" [style.padding-right]="16+'px'" [style.padding-left]="16+'px'" [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'" [routerLink]="['/watchhistory']" class="whistory">
+  <mat-icon>history</mat-icon>
+  watch history</a>
+</div>
+<br/>
+</main>
+</div>
+  <footer class="footer" role="contentinfo" aria-label="footer" [style.height]="4*(marginl+marginxl+marginxxl)+98+'px'" [style.margin-top]="-4*(marginl+marginxl+marginxxl)-98+'px'">
+    <div [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'" [style.margin]="marginl+marginxl+marginxxl+3+'px'"><strong>Contact us</strong></div>
+    <div [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'" [style.margin]="marginl+marginxl+marginxxl+3+'px'">Technical support: 354546</div>
+    <div [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'" [style.margin]="marginl+marginxl+marginxxl+3+'px'">Email address: <a [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'" id="mail" href="mailto:help@umanual.com">help@umanual.com</a></div> 
+    <div [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'" [style.margin]="marginl+marginxl+marginxxl+3+'px'">&copy;2022</div>
+</footer>
+</div>

@@ -1,0 +1,79 @@
+<mat-toolbar class="mat-elevation-z8">
+    <button mat-icon-button *ngIf="sidenav.mode==='over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">menu</mat-icon>
+        <mat-icon *ngIf="sidenav.opened">close</mat-icon>
+    </button>
+    <button mat-icon-button [routerLink]="['/videosforapproval']" id="notifications"><mat-icon  [matBadge]="countVideos" matBadgeColor="warn">notifications</mat-icon></button>
+    <button mat-icon-button id="logout" [routerLink]="['/login']">
+        <mat-icon>logout</mat-icon>
+    </button>
+</mat-toolbar>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8" >
+        <button mat-button class="menu-button" id="active">
+            <mat-icon>people</mat-icon>
+            <span>Uploaders</span>
+        </button>
+        <button mat-button class="menu-button" [routerLink]="['/videosforapproval']">
+            <mat-icon>pending</mat-icon>
+            <span>Videos for approval</span>
+        </button>
+        <button mat-button class="menu-button" [routerLink]="['/videos']">
+            <mat-icon>video_library</mat-icon>
+            <span>Videos</span>
+        </button>
+        <button mat-button class="menu-button" [routerLink]="['/finances']" >
+            <mat-icon>attach_money</mat-icon>
+            <span>Finances</span>
+        </button>
+        <button mat-button class="menu-button" [routerLink]="['/stats-admin']">
+            <mat-icon>bar_chart</mat-icon>
+            <span>Statistics</span>
+        </button>
+        <button mat-button class="menu-button" [routerLink]="['/buyersdata']">
+            <mat-icon>shop two</mat-icon>
+            <span>Video purchases</span>
+        </button>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content mat-elevation-z8">
+                <table mat-table [dataSource]="uploaders">
+                    <ng-container matColumnDef="Name">
+                        <th mat-header-cell *matHeaderCellDef>Name</th>
+                        <td mat-cell *matCellDef="let element">{{element.Firstname+" "+element.Surname}}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="Email">
+                        <th mat-header-cell *matHeaderCellDef>Email</th>
+                        <td mat-cell *matCellDef="let element">{{element.Email}}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="Phone">
+                        <th mat-header-cell *matHeaderCellDef>Phone</th>
+                        <td mat-cell *matCellDef="let element">{{element.Phone}}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="Number of videos">
+                        <th mat-header-cell *matHeaderCellDef>Number of videos</th>
+                        <td mat-cell *matCellDef="let element">{{element.numberOfVideos}}</td>
+                    </ng-container>                    
+                    <ng-container matColumnDef="Average rating">
+                        <th mat-header-cell *matHeaderCellDef>Average rating</th>
+                        <td mat-cell *matCellDef="let element">
+                            {{element.AverageRating}} out of 5 stars</td>
+                    </ng-container>
+                    <ng-container matColumnDef="Earnings">
+                        <th mat-header-cell *matHeaderCellDef>Earnings</th>
+                        <td mat-cell *matCellDef="let element">${{element.Earnings}}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="delete">
+                        <th mat-header-cell *matHeaderCellDef>Delete</th>
+                        <td mat-cell *matCellDef="let element">
+                            <button mat-raised-button id="del" (click)="remove(element)">
+                                <mat-icon class="mat-18">delete</mat-icon>
+                            </button>
+                        </td>
+                    </ng-container> 
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

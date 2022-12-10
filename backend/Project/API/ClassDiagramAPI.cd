@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="API.Controllers.AdminController">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\AdminController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="API.Controllers.DeviceBrandController">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAICAAAAIAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\DeviceBrandController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="API.Controllers.DeviceController">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAACAAAEAAAAAAABBAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\DeviceController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="API.Controllers.DeviceTypeController">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAEAAQAAAA=</HashCode>
+      <FileName>Controllers\DeviceTypeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="API.Controllers.FeedbackController">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAQAAQAAABAAAAAAAAAIA=</HashCode>
+      <FileName>Controllers\FeedbackController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="API.Controllers.LanguageController">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Controllers\LanguageController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="API.Controllers.SearchController">
+    <Position X="2.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAAQAQAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\SearchController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="API.Controllers.SeniorController">
+    <Position X="4" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAQAAA=</HashCode>
+      <FileName>Controllers\SeniorController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="API.Controllers.SubtitleController">
+    <Position X="5.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAABABAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\SubtitleController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="API.Controllers.TranslateController">
+    <Position X="7.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\TranslateController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="API.Controllers.UploaderController">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAQAAEQAAAAQAACAAAAAACAAAAIEQAAEAEAA=</HashCode>
+      <FileName>Controllers\UploaderController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="API.Controllers.UploaderTimeController">
+    <Position X="2.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>SAAAAAAAAAgAAAQAAAAAAAAAGCAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\UploaderTimeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="API.Controllers.VideoController">
+    <Position X="4" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IIAAIQAAAAQAAgAAMAAAACAgAAAQABAAQAAAQgCAAAA=</HashCode>
+      <FileName>Controllers\VideoController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="API.Controllers.ViewController">
+    <Position X="5.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABgAAEAgAAAAAAAAQAAAAAAAACAAAAA=</HashCode>
+      <FileName>Controllers\ViewController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="API.Controllers.IncomeController">
+    <Position X="5.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAABAABgAAAAAAAAAQAAAAAAAgAAA=</HashCode>
+      <FileName>Controllers\IncomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="API.Controllers.BuyerController">
+    <Position X="7.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAQAAAAAAAAAAAAAAAEAAAAAAgEQAAEAAAA=</HashCode>
+      <FileName>Controllers\BuyerController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

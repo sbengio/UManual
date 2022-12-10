@@ -1,0 +1,172 @@
+mat-card.container{
+    background-color: #ffb618;
+    max-width: 100%;
+    padding: 20px;
+}
+select{
+    background-color: white;
+    margin: 5px;
+}
+label,select{
+    font-size: 16px;
+}
+:focus{
+    outline: solid 4px navy; 
+}
+::ng-deep .mat-option:hover:not(.mat-option-disabled),
+::ng-deep .mat-primary .mat-option.mat-selected:not(.mat-option-disabled),
+::ng-deep .mat-form-field.mat-focused.mat-primary .mat-select-arrow,
+::ng-deep .mat-option.mat-selected:not(.mat-active):not(:hover),
+::ng-deep .mat-autocomplete-panel 
+::ng-deep .mat-autocomplete-panel .mat-option.mat-selected:not(.mat-active):not(:hover){
+    background: rgb(20,93,182);
+    color: white;
+}
+::ng-deep .mat-option.mat-active,
+:host::ng-deep .mat-raised-button{
+    background-color: #ffb618;
+    color: black;
+}
+::ng-deep .mat-option,
+::ng-deep .mat-primary .mat-pseudo-checkbox-checked,
+::ng-deep .mat-pseudo-checkbox::after{
+    background: white;
+    color: black;
+}
+.flex-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin-bottom: 50px;
+    margin-top: 70px;
+}
+#searchInput{
+    width: 450px;
+    height: 46px;
+    border-radius: 50px;
+    border: black 2px solid;
+    padding: 10px ;
+    font-size: 16px;
+}
+#searchInput:focus{
+    border-radius: 0%;
+    border: 0cm;
+}
+#recordButton,#searchButton{
+    margin-left: 10px;
+    background-color: #ffb618;
+    font-size: 16px;
+}
+#searchButton,#recordButton,mat-card.container{
+    border: black 2px solid;
+}
+#grid1_label,#title,#no{
+    color: rgb(20,93,182);
+}
+#no{
+    display: none;
+}
+#link{
+    top: 32px;
+    right: 82%;
+    position: relative;
+}
+#title{
+    text-align: center;
+    font-size: xx-large;
+    padding: 15px;
+    font-weight: 450;
+}
+label{
+    color: black;
+}
+.mat-18{
+    color: white;
+}
+#playbtn{
+    background-color: rgb(20,93,182)
+}
+table{
+    width: 100%;
+}
+table,.mat-header-cell{
+    color: white;
+    background-color: rgb(20,93,182);
+    font-size: 16px;
+}
+.mat-row,.mat-cell{
+    background-color: #ffb618;
+    color: black;
+    font-size: 16px;
+}    
+.mat-row:hover{
+    background-color: #ffb618;
+}
+form#searchForm,form#voiceForm{
+    margin-right: 5px;
+    margin-left: 0px;
+    margin-bottom: 5px;
+    display: flex;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 98px;
+    margin-top: -98px;
+    background-color: rgb(20,93,182);
+    color: white;
+    text-align: center;
+    font-size: 16px;
+}
+#contact{
+    margin: 3px;
+}
+#logout{
+    left: 97%;
+    position: fixed;
+    top: 1%;
+}
+:host::ng-deep .mat-progress-spinner circle,
+:host::ng-deep .mat-spinner circle{
+    stroke: rgb(20,93,182);
+}
+.loading-indicator {
+    position: fixed;
+    z-index: 999;
+    height: 2em;
+    width: 20em;
+    overflow: show;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  /* Transparent Overlay */
+  .loading-indicator:before {
+    content: '';
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+}
+h2{
+    margin: 10px;
+    font-size: 16px;
+} 
+#mail{
+    color: white;
+}
+@media screen and (max-width:800px){
+	#searchInput{
+        width: 150px;
+    }
+    #recordButton,#searchButton{
+        font-size: small;
+    }
+}

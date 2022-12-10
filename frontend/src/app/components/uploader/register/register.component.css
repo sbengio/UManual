@@ -1,0 +1,93 @@
+mat-toolbar,#btn{
+    background: rgb(20,93,182);
+}
+mat-stepper{
+    max-width: 575px;
+    border-radius: 60px;
+    margin: 5em auto;
+    text-align: center;
+    background-color: #ffb618;
+    color: black;
+}
+#exists{
+    display: none;
+}
+#search{
+    position: fixed;
+    right: 3%;
+    background-color: #ffb618 !important;
+    color: black;
+}
+#removed{
+    display: none;
+    text-align: center;
+    margin: 15px;
+    margin-bottom: 0px;
+}
+:host::ng-deep .mat-step-header .mat-step-icon-selected,
+:host::ng-deep .mat-step-header .mat-step-icon,
+:host::ng-deep .mat-step-header .mat-step-label.mat-step-label-active,
+:host::ng-deep .mat-step-header .mat-step-label{
+    color: black;
+    background: #ffb618;
+}
+::ng-deep .mat-option:hover:not(.mat-option-disabled),
+::ng-deep .mat-select-panel,
+::ng-deep .mat-primary .mat-option.mat-selected:not(.mat-option-disabled),
+::ng-deep .mat-select-arrow,
+::ng-deep .mat-form-field .mat-select.mat-select-invalid .mat-select-arrow,
+::ng-deep.mat-form-field.mat-focused.mat-primary .mat-select-arrow{
+    background: #ffb618;
+    color: black;
+}
+::ng-deep .mat-select-value{
+    color: black;
+}
+::ng-deep .mat-option,
+::ng-deep .mat-option.mat-active,
+::ng-deep .mat-primary .mat-pseudo-checkbox-checked,
+::ng-deep .mat-pseudo-checkbox::after,
+#add{
+    background: rgb(20,93,182);
+    color: white;
+}
+:host::ng-deep .mat-horizontal-stepper-header::before,
+:host::ng-deep .mat-horizontal-stepper-header::after,
+:host::ng-deep .mat-stepper-horizontal-line{
+    border-top-color: black;
+}
+:host::ng-deep .mat-form-field.mat-focused .mat-form-field-label.mat-accent,
+:host::ng-deep .mat-form-field.mat-focused .mat-form-field-label .mat-form-field-required-marker,
+:host::ng-deep .mat-focused .mat-form-field-label,
+:host::ng-deep .mat-form-field-label,
+:host::ng-deep .mat-input-element,
+:host::ng-deep.mat-drawer-container{
+    color: black !important;
+}
+:host::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple {
+    background-color: black !important;
+}
+:host::ng-deep.mat-form-field-disabled{
+    opacity: 0.5
+}
+.full-width{
+    width: 80%;
+}
+#add{
+    border: none;
+    font-size: larger;
+    margin-bottom: 5px;
+    opacity: 0.5;
+}
+#su{
+ color: rgb(20,93,182);
+ text-align: left;   
+ margin-left: 10%;
+ font-size: medium;
+ opacity: 0.5;
+}
+#text,#text2{
+    top: 15px;
+    position: relative;
+    opacity: 0.5;
+}

@@ -1,0 +1,45 @@
+<mat-dialog-content>
+  <mat-card *ngIf="!showing && !won && !noSubtitle">
+    <mat-card-title>Upload video and subtitles</mat-card-title>
+    <form (ngSubmit)="Edit()" name="uploadForm" [formGroup]="uploadForm">
+    <div>
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Video language</mat-label>
+        <mat-select formControlName="language" required>
+          <mat-option *ngFor="let lang of languages" [value]="lang" >
+          {{lang.LanguageName}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="uploadForm.get('language')!.errors?.required&& uploadForm.get('language')!.touched ">
+          Language is required
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <button type="button" id="btn1" mat-raised-button (click)="file.click()">Choose Video File *</button>
+      <input type="file" hidden #file class="form-control file" accept="video/*" (change)="getFileDetails($event)">
+    </div>
+    <div>
+      <button type="button" id="btn1" mat-raised-button (click)="file2.click()">Choose Subtitle File</button>
+      <input hidden id="sub" type="file" #file2 class="form-control file" accept=".vtt,.srt,.dxfp,.scc,.sami" (change)="getFileDetailsSub($event)">
+    </div>    
+      <h1 id="labels" *ngIf="!showing && won">Video has been uploaded!</h1>
+      <h3 id="labels" *ngIf="!showing && won">If no subtitle file attached, subtitles will be generated<br> and you can edit them</h3>        
+      <button mat-raised-button type="submit" mat-primary [disabled]="!isFull ||uploadForm.invalid">Save</button>
+      <button mat-raised-button (click)="close()">Cancel</button>
+      <video controls width="200px" height="200px" style="display: none;" #video></video> 
+    </form></mat-card>   
+    <div class="loading-indicator" *ngIf="showing"><mat-spinner></mat-spinner></div>
+    <mat-card *ngIf="!showing && won && noSubtitle">
+      <mat-card-title>Edit & upload generated subtitles</mat-card-title>
+        <mat-card-content>
+          <form (ngSubmit)="uploadSubtitle()" name="uploadSubtitleForm" [formGroup]="uploadSubtitleForm">
+          <mat-form-field>
+            <textarea matInput formControlName="subtitle" cols="30" rows="29"></textarea>
+          </mat-form-field>
+          <button type="submit" style="margin-top: 10px; width: 20vw; font-size: larger;" mat-flat-button>Upload subtitles</button>
+          <button mat-raised-button (click)="close()">Cancel</button>
+        </form>
+        </mat-card-content>
+    </mat-card>
+</mat-dialog-content>

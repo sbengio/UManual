@@ -1,0 +1,98 @@
+<mat-toolbar class="mat-elevation-z8">
+    <button mat-icon-button *ngIf="sidenav.mode==='over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">menu</mat-icon>
+        <mat-icon *ngIf="sidenav.opened">close</mat-icon>
+    </button>
+    <button mat-icon-button [routerLink]="['/videosforapproval']" id="notifications"><mat-icon  [matBadge]="countVideos" matBadgeColor="warn">notifications</mat-icon></button>
+    <button mat-icon-button id="logout" [routerLink]="['/login']">
+        <mat-icon>logout</mat-icon>
+    </button>
+</mat-toolbar>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+        <button mat-button class="menu-button" [routerLink]="['/uploaders']">
+            <mat-icon>people</mat-icon>
+            <span>Uploaders</span>
+        </button>
+        <button mat-button class="menu-button" [routerLink]="['/videosforapproval']">
+            <mat-icon>pending</mat-icon>
+            <span>Videos for approval</span>
+        </button>
+        <button mat-button class="menu-button"(click)="reload()" id="active">
+            <mat-icon>video_library</mat-icon>
+            <span>Videos</span>
+        </button>
+        <button mat-button class="menu-button" [routerLink]="['/finances']">
+            <mat-icon>attach_money</mat-icon>
+            <span>Finances</span>
+        </button>
+        <button mat-button class="menu-button" [routerLink]="['/stats-admin']">
+            <mat-icon>bar_chart</mat-icon>
+            <span>Statistics</span>
+        </button>
+        <button mat-button class="menu-button" [routerLink]="['/buyersdata']">
+            <mat-icon>shop two</mat-icon>
+            <span>Video purchases</span>
+        </button>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content mat-elevation-z8">
+        <mat-card class="form-wrapper">
+            <input id="searchInput" matInput type="text" placeholder="Search device" #search>
+            <button id="searchButton" mat-stroked-button (click)="freeSearch(search.value)">
+            <mat-icon id="icon">search</mat-icon>
+            </button>
+        </mat-card>
+        <h2 id="vids" *ngIf="this.searched==true || this.num=='No'">
+            {{num}} videos were found
+        </h2>
+        <table mat-table [dataSource]="videos">
+                <ng-container matColumnDef="Device name">
+                    <th mat-header-cell *matHeaderCellDef>Device name</th>
+                    <td mat-cell *matCellDef="let element">{{element.DeviceType+" "+element.DeviceBrand+" "+element.Model}}</td>
+                </ng-container>
+                <ng-container matColumnDef="Video">
+                    <th mat-header-cell *matHeaderCellDef>Video</th>
+                    <td mat-cell *matCellDef="let element">
+                        <video controls width="200px" height="200px">
+                            <source [src]="element.Url" type='video/mp4'/> 
+                          </video></td>
+                </ng-container>
+                <ng-container matColumnDef="Uploader name">
+                    <th mat-header-cell *matHeaderCellDef>Uploader name</th>
+                    <td mat-cell *matCellDef="let element">uploaded by: {{element.UploaderName}}</td>
+                </ng-container>
+                <ng-container matColumnDef="Date">
+                    <th mat-header-cell *matHeaderCellDef>Date</th>
+                    <td mat-cell *matCellDef="let element">{{element.Date|date}}</td>
+                </ng-container>
+                <ng-container matColumnDef="Blocked">
+                    <th mat-header-cell *matHeaderCellDef>Blocked</th>
+                    <td mat-cell *matCellDef="let element">{{element.Blocked ? 'Yes':'No'}}</td>
+                </ng-container>
+                <ng-container matColumnDef="Views">
+                    <th mat-header-cell *matHeaderCellDef>Views</th>
+                    <td mat-cell *matCellDef="let element">{{element.Views}}</td>
+                </ng-container>
+                <ng-container matColumnDef="Disabled">
+                    <th mat-header-cell *matHeaderCellDef>Disabled</th>
+                    <td mat-cell *matCellDef="let element">{{element.Disabled ? 'Yes':'No'}}</td>
+                </ng-container>
+                <ng-container matColumnDef="Average rating">
+                    <th mat-header-cell *matHeaderCellDef>Average rating</th>
+                    <td mat-cell *matCellDef="let element">{{element.AverageRating}} out of 5 stars</td>
+                </ng-container>
+                <ng-container matColumnDef="Delete">
+                    <th mat-header-cell *matHeaderCellDef>Delete</th>
+                    <td mat-cell *matCellDef="let element">
+                        <button mat-raised-button id="del" (click)="remove(element.VideoId)">
+                            <mat-icon class="mat-18">delete</mat-icon>
+                        </button>
+                    </td>
+                </ng-container> 
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>  
+    </mat-sidenav-content>
+</mat-sidenav-container>

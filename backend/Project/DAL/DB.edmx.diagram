@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3f22f93dc48c44bfbcb7234a332f82f6" Name="Diagram1" ZoomLevel="63">
+        <EntityTypeShape EntityType="DeviceVideosDBModel.DeviceBrand" Width="1.5" PointX="13.625" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DeviceVideosDBModel.Device" Width="1.5" PointX="13.625" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DeviceVideosDBModel.DeviceType" Width="1.5" PointX="16" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DeviceVideosDBModel.UploaderTime" Width="1.5" PointX="5.25" PointY="5.625" IsExpanded="true" />
+        <AssociationConnector Association="DeviceVideosDBModel.FK__Devices__DeviceB__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="DeviceVideosDBModel.FK__Devices__DeviceT__3E52440B" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DeviceVideosDBModel.Language" Width="1.5" PointX="0.75" PointY="4" />
+        <EntityTypeShape EntityType="DeviceVideosDBModel.View" Width="1.5" PointX="11.375" PointY="5.75" />
+        <EntityTypeShape EntityType="DeviceVideosDBModel.Feedback" Width="1.5" PointX="9.25" PointY="6.875" />
+        <EntityTypeShape EntityType="DeviceVideosDBModel.Senior" Width="1.5" PointX="6.625" PointY="7.875" />
+        <AssociationConnector Association="DeviceVideosDBModel.FK__Feedbacks__IP_Ad__0880433F" />
+        <EntityTypeShape EntityType="DeviceVideosDBModel.Admin" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DeviceVideosDBModel.Buyer" Width="1.5" PointX="3.375" PointY="1.75" />
+        <EntityTypeShape EntityType="DeviceVideosDBModel.Income" Width="1.5" PointX="6.25" PointY="2" />
+        <AssociationConnector Association="DeviceVideosDBModel.FK__Income__BuyerId__6ABAD62E" />
+        <EntityTypeShape EntityType="DeviceVideosDBModel.Uploader" Width="1.5" PointX="3" PointY="5.125" />
+        <AssociationConnector Association="DeviceVideosDBModel.FK__UploaderT__Uploa__308E3499" />
+        <AssociationConnector Association="DeviceVideosDBModel.UploaderLanguages" />
+        <EntityTypeShape EntityType="DeviceVideosDBModel.Video" Width="1.5" PointX="9.125" PointY="0.75" />
+        <AssociationConnector Association="DeviceVideosDBModel.FK__Videos__DeviceId__55009F39" />
+        <AssociationConnector Association="DeviceVideosDBModel.FK__Feedbacks__Video__345EC57D" />
+        <AssociationConnector Association="DeviceVideosDBModel.FK__Income__VideoId__69C6B1F5" />
+        <AssociationConnector Association="DeviceVideosDBModel.FK__Videos__Language__55F4C372" />
+        <AssociationConnector Association="DeviceVideosDBModel.FK__Videos__Uploader__540C7B00" />
+        <AssociationConnector Association="DeviceVideosDBModel.FK__Views__VideoId__625A9A57" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BLL.DeviceBLL">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAEAAAAAAABDAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>DeviceBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.DeviceBrandBLL">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAABCAAAAIAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>DeviceBrandBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.DeviceTypeBLL">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAEAAQAAAA=</HashCode>
+      <FileName>DeviceTypeBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.FeedbackBLL">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>RAAAAAAAAAAAAAAAAAAAAAIAQAAQAAABAAAAAAAAAAA=</HashCode>
+      <FileName>FeedbackBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.LanguageBLL">
+    <Position X="8" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAEQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>LanguageBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.SearchBL">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAAQAQAAAAAAAAAAA=</HashCode>
+      <FileName>SearchBL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.SeniorBLL">
+    <Position X="2.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAIAAAA=</HashCode>
+      <FileName>SeniorBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.SubtitleBLL">
+    <Position X="4.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAABgAFQAAACAAAxAABAAA=</HashCode>
+      <FileName>SubtitleBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.TranslateBLL">
+    <Position X="6" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgQAIAQAAAAAAAAAAFAAAAAQAAQAAAAAA=</HashCode>
+      <FileName>TranslateBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.UploaderBLL">
+    <Position X="8" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABQAAAAQAAEQAAACQAACAAAAAACAAAgIEQAAEAAAA=</HashCode>
+      <FileName>UploaderBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.UploaderTimeBLL">
+    <Position X="2.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>SAAAAAAAAAgAAIQAAAEAAAAACCAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>UploaderTimeBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.VideoBLL">
+    <Position X="0.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>JIAAAQAAAAQIAgAAMBAAACAAAAQRABAARAAAQgCAAAA=</HashCode>
+      <FileName>VideoBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.ViewBLL">
+    <Position X="4.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABgAAAAhAAAAAAAAQAAAAAAAAAAAAQA=</HashCode>
+      <FileName>ViewBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.CONVERTERS.AdminConverter">
+    <Position X="2.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CONVERTERS\AdminConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.CONVERTERS.DeviceBrandConverter">
+    <Position X="4.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>CONVERTERS\DeviceBrandConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.CONVERTERS.DeviceConverter">
+    <Position X="6" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAQAAIAAAAAA=</HashCode>
+      <FileName>CONVERTERS\DeviceConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.CONVERTERS.DeviceTypeConverter">
+    <Position X="8" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>CONVERTERS\DeviceTypeConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.CONVERTERS.FeedbackConverter">
+    <Position X="6" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>CONVERTERS\FeedbackConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.CONVERTERS.LanguageConverter">
+    <Position X="8" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAgAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>CONVERTERS\LanguageConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.CONVERTERS.SeniorConverter">
+    <Position X="6" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>CONVERTERS\SeniorConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.CONVERTERS.UploaderConverter">
+    <Position X="8" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAABAAAQAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>CONVERTERS\UploaderConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.CONVERTERS.UploaderTimeConverter">
+    <Position X="4.25" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CONVERTERS\UploaderTimeConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.CONVERTERS.VideoConverter">
+    <Position X="2.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAgAAAAAAAKAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>CONVERTERS\VideoConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.CONVERTERS.ViewConverter">
+    <Position X="0.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAIAAAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>CONVERTERS\ViewConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.ExtentionMethods">
+    <Position X="2.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>ExtentionMethods.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.IncomeBLL">
+    <Position X="6" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAABAABAAAAAAAAAAQAAQAAAAgAAA=</HashCode>
+      <FileName>IncomeBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.BuyerBLL">
+    <Position X="4.25" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAEAAIAAAgEQAAAAAAA=</HashCode>
+      <FileName>BuyerBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.CONVERTERS.BuyerConverter">
+    <Position X="0.5" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEACAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>CONVERTERS\BuyerConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.CONVERTERS.IncomeConverter">
+    <Position X="2.5" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAAAAAAAAAAAAAAABAAAAAIAAAAA=</HashCode>
+      <FileName>CONVERTERS\IncomeConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

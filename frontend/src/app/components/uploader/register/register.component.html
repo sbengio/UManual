@@ -1,0 +1,158 @@
+<mat-toolbar>
+  <a id="search" role="button" mat-raised-button [routerLink]="['/search']">
+    <mat-icon>search</mat-icon>
+    back to search
+  </a>
+</mat-toolbar>
+<ng-container [ngSwitch]="stepperOrientation | async">
+  <div *ngSwitchCase="'horizontal'"></div>
+  <div *ngSwitchCase="'vertical'"></div>
+</ng-container>
+<h2 id="removed">
+  <mat-icon>done_outline</mat-icon>
+  Your account has been removed!
+</h2>
+<form [formGroup]="uploader" (ngSubmit)="Register()">
+<mat-stepper 
+  class="example-stepper" linear
+  [orientation]="(stepperOrientation | async)!"
+  formArrayName="uploaderDetails">
+  <mat-step formGroupName="0" label="Account"  [stepControl]="uploaderDetails.get([0])!">
+    <div><mat-form-field class="full-width" appearance="fill">
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="Firstname" required>
+        <mat-error *ngIf="uploaderDetails.controls[0].get('Firstname')!.errors?.required&& uploaderDetails.controls[0].get('Firstname')!.touched ">
+          Firstname is required
+        </mat-error>
+        <mat-error *ngIf=" uploaderDetails.controls[0].get('Firstname')!.dirty && uploaderDetails.controls[0].get('Firstname')!.errors?.pattern">
+          Firstname is invalid
+        </mat-error>
+    </mat-form-field></div>
+    <div><mat-form-field class="full-width"appearance="fill">
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="Lastname" required>
+        <mat-error *ngIf="uploaderDetails.controls[0].get('Lastname')!.errors?.required&& uploaderDetails.controls[0].get('Lastname')!.touched ">
+          Lastname is required
+        </mat-error>
+        <mat-error *ngIf=" uploaderDetails.controls[0].get('Lastname')!.dirty && uploaderDetails.controls[0].get('Lastname')!.errors?.pattern">
+          Lastname is invalid
+        </mat-error>
+    </mat-form-field></div>
+    <div><mat-form-field class="full-width" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" required>
+        <mat-error *ngIf="uploaderDetails.controls[0].get('email')!.errors?.required&& uploaderDetails.controls[0].get('email')!.touched ">
+          Email is required
+        </mat-error>
+        <mat-error *ngIf=" uploaderDetails.controls[0].get('email')!.dirty && (!uploaderDetails.controls[0].get('email')!.valid || uploaderDetails.controls[0].get('email')!.errors?.pattern)">
+          Email is invalid
+      </mat-error>
+    </mat-form-field></div>
+    <div><mat-form-field class="full-width" appearance="fill">
+        <mat-label>Password</mat-label>
+        <input formControlName="Password" matInput [type]=" hide ? 'password' : 'text'" required />
+        <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide Password'"
+        [attr.aria-pressed]="hide">
+        <mat-icon>
+            {{hide ? 'visibility_off' : 'visibility'}}
+        </mat-icon>
+        </button>
+        <mat-error *ngIf="uploaderDetails.controls[0].get('Password')!.errors?.required&& uploaderDetails.controls[0].get('Password')!.touched">
+          Password is required
+        </mat-error>
+        <mat-error *ngIf="uploaderDetails.controls[0].get('Password')!.errors?.minlength&& uploaderDetails.controls[0].get('Password')!.dirty">
+          Password must contain at least 8 characters
+        </mat-error>
+    </mat-form-field></div>
+    <div><mat-form-field class="full-width"appearance="fill">
+        <mat-label>Confirm password</mat-label>
+        <input formControlName="ConfirmPassword" matInput [type]=" hide ? 'password' : 'text'" required  [errorStateMatcher]="matcher"/>
+        <button type="button"  mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide Password'"
+        [attr.aria-pressed]="hide">
+        <mat-icon>
+            {{hide ? 'visibility_off' : 'visibility'}}
+        </mat-icon>
+        </button>
+        <mat-error *ngIf="uploaderDetails.controls[0].get('ConfirmPassword')!.errors?.required&& uploaderDetails.controls[0].get('ConfirmPassword')!.touched">
+          You must confirm password
+        </mat-error>
+        <mat-error *ngIf="this.uploader.hasError('notSame') && uploaderDetails.controls[0].get('ConfirmPassword')!.dirty &&!uploaderDetails.controls[0].get('ConfirmPassword')!.errors?.required">
+          passwords do not match
+        </mat-error> 
+    </mat-form-field>
+  </div>
+    <div>
+      <button mat-button matStepperNext type="button">Next</button>
+    </div>
+  </mat-step>
+  <mat-step formGroupName="1" label="Support" [disabled]="true"  [stepControl]="uploaderDetails.get([1])!">
+        <div><mat-checkbox class="example-margin" #c (click)="disablediv(c.checked)">Offer support to viewers</mat-checkbox></div>
+        <div><mat-form-field class="full-width" appearance="fill">
+          <mat-label>Country</mat-label>
+          <mat-select formControlName="Country">
+            <mat-option *ngFor="let c of countries" [value]="c.code" >
+              {{c.name}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="uploaderDetails.controls[1].get('Country')!.errors?.required&& uploaderDetails.controls[1].get('Country')!.touched ">
+            Country is required
+          </mat-error>
+        </mat-form-field></div>
+        <div><mat-form-field class="full-width" appearance="fill">
+          <mat-label>Languages you are fluent in</mat-label>
+          <mat-select multiple formControlName="Lang">
+            <mat-option *ngFor="let lang of languages" [value]="lang" >
+              {{lang.LanguageName}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="uploaderDetails.controls[1].get('Lang')!.errors?.required&& uploaderDetails.controls[1].get('Lang')!.touched">
+            language/s is required
+          </mat-error>
+        </mat-form-field></div>
+        <p id="su">Hours available for support</p>
+        <div formArrayName="TimeRanges" *ngFor="let item of TimeRanges().controls; let i = index">
+          <div formGroupName="{{i}}" fxLayout="row" fxLayoutAlign="center" fxLayoutGap="7px">
+          <div id="text">From </div>
+          <mat-form-field fxFlex="33%" class="full-width" appearance="fill">
+            <input matTimepicker formControlName="TimeStart">
+            <mat-error *ngIf="TimeRanges().controls[i].get('TimeStart')!.errors?.required&& TimeRanges().controls[i].get('TimeStart')!.touched">
+              TimeStart is required
+            </mat-error>
+          </mat-form-field>
+          <div id="text2"> to </div>
+          <mat-form-field fxFlex="33%" class="full-width" appearance="fill">            
+            <input matTimepicker formControlName="TimeEnd">
+            <mat-error *ngIf="TimeRanges().controls[i].get('TimeEnd')!.errors?.required&& TimeRanges().controls[i].get('TimeEnd')!.touched">
+              TimeEnd is required
+            </mat-error>
+          </mat-form-field></div>
+        </div>
+        <button type="button" id="add" title="add time range" (click)="addTimeRange()">+</button>
+        <div>
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Phone</mat-label>
+            <input matInput formControlName="phone" required [errorStateMatcher]="matcher2">
+            <mat-error *ngIf="uploaderDetails.controls[1].get('phone')!.errors?.required&& uploaderDetails.controls[1].get('phone')!.touched ">
+              Phone is required
+            </mat-error>
+            <mat-error *ngIf="this.uploader.hasError('notValid')&&!uploaderDetails.controls[1].get('phone')!.errors?.required &&uploaderDetails.controls[1].get('phone')!.touched">
+              Phone is invalid
+            </mat-error>
+        </mat-form-field></div>
+        <div>
+          <button mat-button matStepperPrevious type="button">Back</button>
+          <button mat-button matStepperNext type="button">Next</button>
+        </div>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious type="button">Back</button>
+      <button mat-button type="submit">Register</button>
+    </div>
+    <h2 id="exists"><mat-icon>error</mat-icon>You already have an account!</h2>
+  </mat-step>
+</mat-stepper>
+</form>
+

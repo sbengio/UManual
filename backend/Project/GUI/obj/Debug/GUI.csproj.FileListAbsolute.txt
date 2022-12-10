@@ -1,0 +1,9 @@
+K:\PROJECT\Layers\Project\GUI\bin\Debug\GUI.exe.config
+K:\PROJECT\Layers\Project\GUI\bin\Debug\GUI.exe
+K:\PROJECT\Layers\Project\GUI\bin\Debug\GUI.pdb
+K:\PROJECT\Layers\Project\GUI\obj\Debug\GUI.csprojAssemblyReference.cache
+K:\PROJECT\Layers\Project\GUI\obj\Debug\GUI.Properties.Resources.resources
+K:\PROJECT\Layers\Project\GUI\obj\Debug\GUI.csproj.GenerateResource.cache
+K:\PROJECT\Layers\Project\GUI\obj\Debug\GUI.csproj.CoreCompileInputs.cache
+K:\PROJECT\Layers\Project\GUI\obj\Debug\GUI.exe
+K:\PROJECT\Layers\Project\GUI\obj\Debug\GUI.pdb

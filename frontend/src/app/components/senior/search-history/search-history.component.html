@@ -1,0 +1,42 @@
+<div lang="en" style="position: relative;">
+<header id="flex-container">
+<h1 id="title" [style.font-size]="LargeFs+LargerFs+XLargeFs+35+'px'"><strong>Search history</strong></h1>
+<a id="btn" role="button" mat-raised-button [routerLink]="['/search']" [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'">
+  <mat-icon>search</mat-icon>
+  back to search
+</a>
+</header>
+<main>
+<mat-card class="container2 mat-elevation-z0" role="grid" aria-label="Change font size" *ngIf="invisible">
+  <div class="row" role="row">
+  <div class="col" role="gridcell">
+    <button aria-label="increase font size by 6 pixels" class="font" mat-raised-button id="font1" (click)="large()">A</button>
+  </div>
+  <div class="col" role="gridcell">
+    <button aria-label="increase font size by 10 pixels" class="font" mat-raised-button id="font2" (click)="larger()">A</button>
+  </div>
+  <div class="col" role="gridcell">
+    <button aria-label="increase font size by 14 pixels" class="font" mat-raised-button id="font3" (click)="x_large()">A</button> 
+  </div>
+  </div>
+</mat-card>
+<table mat-table [dataSource]=searches class="mat-elevation-z8" aria-label="search history">
+    <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'"> Date </th>
+        <td mat-cell *matCellDef="let searches" [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'"> {{searches.date|date:'EEEE, MMMM d, y h:mm a'}} </td>
+      </ng-container>
+      <ng-container matColumnDef="search">
+        <th mat-header-cell *matHeaderCellDef [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'"> Search </th>
+        <td mat-cell *matCellDef="let searches" [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'"> {{searches.search}} </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+</main> 
+<footer class="footer" role="contentinfo" aria-label="footer">
+  <div id="contact" [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'"><strong>Contact us</strong></div>
+  <div id="contact" [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'">Technical support: 354546</div>
+  <div id="contact" [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'">Email address: <a [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'" id="mail" href="mailto:help@umanual.com">help@umanual.com</a></div> 
+  <p id="contact" [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'">&copy;2022</p>
+</footer>
+</div>

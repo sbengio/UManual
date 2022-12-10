@@ -1,0 +1,9 @@
+<mat-dialog-content>
+    <video controls #videoPlayer id="vid" preload="metadata" crossorigin="anonymous">
+        <source [src]="link" type="video/mp4">
+        <track [src]="link4" #subtitle default kind="subtitles" srclang="en">
+      </video>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-raised-button (click)="close()">Close</button>
+</mat-dialog-actions>

@@ -1,0 +1,58 @@
+<mat-toolbar class="mat-elevation-z8">
+    <button mat-icon-button *ngIf="sidenav.mode==='over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">menu</mat-icon>
+        <mat-icon *ngIf="sidenav.opened">close</mat-icon>
+    </button>
+    <button mat-icon-button [routerLink]="['/videosforapproval']" id="notifications"><mat-icon  [matBadge]="countVideos" matBadgeColor="warn">notifications</mat-icon></button>
+    <button mat-icon-button id="logout" [routerLink]="['/login']">
+        <mat-icon>logout</mat-icon>
+    </button>
+</mat-toolbar>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8" [routerLink]="['/uploaders']">
+        <button mat-button class="menu-button">
+            <mat-icon>people</mat-icon>
+            <span>Uploaders</span>
+        </button>
+        <button mat-button class="menu-button" [routerLink]="['/videosforapproval']">
+            <mat-icon>pending</mat-icon>
+            <span>Videos for approval</span>
+        </button>
+        <button mat-button class="menu-button" [routerLink]="['/videos']">
+            <mat-icon>video_library</mat-icon>
+            <span>Videos</span>
+        </button>
+        <button mat-button class="menu-button" [routerLink]="['/finances']">
+            <mat-icon>attach_money</mat-icon>
+            <span>Finances</span>
+        </button>
+        <button mat-button class="menu-button" id="active">
+            <mat-icon>bar_chart</mat-icon>
+            <span>Statistics</span>
+        </button>
+        <button mat-button class="menu-button" [routerLink]="['/buyersdata']">
+            <mat-icon>shop two</mat-icon>
+            <span>Video purchases</span>
+        </button>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content">
+            <mat-card class="example-card  mat-elevation-z0">
+                <mat-card-header>
+                <mat-card-title>Yearly views</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <canvas id="canvas" width="550" height="450">{{ chart }}</canvas>
+                </mat-card-content>
+            </mat-card>
+            <mat-card class="example-card  mat-elevation-z0">
+                <mat-card-header>
+                <mat-card-title>Number of uploaded videos</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <canvas id="canvas2" width="550" height="450">{{ chart2 }}</canvas>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

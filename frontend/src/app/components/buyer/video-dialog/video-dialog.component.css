@@ -1,0 +1,9 @@
+::ng-deep.mat-dialog-container {
+    background-color: rgb(20,93,182);
+} 
+button{
+    background-color: white;
+    color: rgb(20,93,182);
+    display: block;
+    margin-top: 10px;
+}

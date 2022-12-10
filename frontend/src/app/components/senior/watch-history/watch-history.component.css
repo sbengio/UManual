@@ -1,0 +1,93 @@
+#flex-container{
+  display: flex;
+   justify-content: center; 
+   flex-direction: row;
+   align-items: center;
+   padding: 3px;
+ }
+ #flex-container::before {
+   content:"DDDDDDDDDD";
+   margin: 1px auto 1px 1px;
+   visibility: hidden;
+   padding: 5px;
+   background: #ddd;
+ }
+ #title,#btn{
+  display: flex;
+}
+#btn{
+  margin-left: auto;
+}
+#title{
+  font-size: xx-large;
+  padding: 15px;
+  color: rgb(20,93,182);
+  margin-bottom: 0px;
+}
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(20,93,182);
+    color: white;
+    text-align: center;
+}
+*:focus{
+  outline: solid 4px black; 
+}
+#mail:focus{
+  outline: solid 4px red; 
+}
+#btn:focus{
+  border: red solid 4px;
+  outline: none;
+}
+table{
+  width: 100%;
+  position: relative;
+}
+.mat-header-cell,#btn,.watch{
+  color: white;
+  background-color: rgb(20,93,182)
+}
+table,.mat-cell,h3,.font{
+  background: #ffb618;
+  color: black;
+}
+button:hover,#btn:hover{
+  filter: brightness(1.3);
+} 
+.font,#btn{
+  border: black 2px solid;
+}
+#font1{
+font-size: 20px;
+}
+#font2{
+font-size: 26px;
+}
+#font3{
+font-size: 30px;
+}
+mat-card{
+	width: 300px;
+	margin: 10px;
+}
+mat-card.container2{
+  background-color: transparent;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  padding: 0;
+  right: 0%;
+  padding-top:16px ;
+  padding-right: 3px;
+  margin: 0px;
+  margin-bottom: 20px;
+}
+#mail{
+  color: white;
+}
+#contact{
+  margin: 3px;
+}

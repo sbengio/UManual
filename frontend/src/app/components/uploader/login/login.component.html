@@ -1,0 +1,56 @@
+<mat-toolbar>
+  <a id="search" role="button" mat-raised-button [routerLink]="['/search']">
+    <mat-icon>search</mat-icon>
+    back to search
+  </a>
+</mat-toolbar>
+<mat-card>
+    <mat-card-content>
+      <div class="header">
+        <P>Sign Into Your Account </P>
+      </div>
+      <form (ngSubmit)="onSubmit()" name="loginForm" [formGroup]="loginForm">
+        <div class="emailInput">
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input formControlName="email" matInput placeholder="Enter email address" required/>
+            <mat-error *ngIf="email.errors">
+                <mat-error *ngIf="email.errors?.required&& email.touched">
+                    Email is required
+                </mat-error>
+                <mat-error *ngIf="!email.errors?.required&& email.dirty && (!email.valid || email.errors?.pattern)">
+                    Email is invalid
+                </mat-error>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Password</mat-label>
+            <input formControlName="password" matInput [type]=" hide ? 'password' : 'text'" required [errorStateMatcher]="matcher"/>
+            <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide Password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>
+                {{hide ? 'visibility_off' : 'visibility'}}
+            </mat-icon>
+          </button>
+          <mat-error *ngIf="password.errors?.required&& password.touched">
+            Password is required
+          </mat-error>
+          <mat-error *ngIf="password.errors?.minlength&& password.dirty">
+            Password must contain at least 8 characters
+          </mat-error>
+          <mat-error *ngIf="this.loginForm.hasError('notSame') && this.loginForm.hasError('notSameAdmin') && this.loginForm.hasError('notSameBuyer') && !password.errors?.required" >
+            email and password do not match
+          </mat-error>
+        </mat-form-field>
+        </div>
+        <p><a class="text-link" [routerLink]="['/resetpassword']">Forgot Password?</a></p>
+        <button type="submit" id="submit" mat-flat-button [disabled]="!email.dirty||!password.dirty">Login</button>
+      </form>
+      <div class="button-row">
+        <p>Not an uploader yet? <a [routerLink]="['/register']">Register</a></p>
+        <p>Would you like to buy a video and don't have an account yet? <a [routerLink]="['/registerbuyer']">Register</a></p>
+      </div>
+    </mat-card-content>
+  </mat-card>

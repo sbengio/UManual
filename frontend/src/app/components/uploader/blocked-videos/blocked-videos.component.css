@@ -1,0 +1,89 @@
+mat-toolbar,#edit{
+    background: rgb(20,93,182);
+}
+mat-sidenav {
+    margin: 16px;
+    width: 212px;
+    border-right: none;
+    background: rgb(20,93,182);
+    color: white;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+}
+h2{
+    padding: 5px;
+}
+.content {
+    margin: 16px;
+    margin-left: 32px;
+    background: #ffb618;
+}
+mat-sidenav-container {
+    height: calc(100vh - 65px);
+    background:transparent;
+}
+.menu-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem; 
+}
+.menu-button mat-icon {
+    margin-right: 8px;
+}
+#logout{
+    left: 95%;
+    position: fixed;
+}
+table,.mat-header-cell,.mat-cell,h3{
+    background: #ffb618;
+    color: black;
+    font-size: 16px;
+}
+.mat-header-cell{
+    color: rgb(20,93,182);
+}
+h3{
+    padding: 5px;
+}
+table{
+    width: 100%;
+}
+#upload{
+    position: relative;
+    left: 14%;
+}
+#notifications{
+    left: 91%;
+    position: fixed;
+}
+:host::ng-deep .mat-progress-spinner circle,
+:host::ng-deep .mat-spinner circle{
+    stroke: rgb(20,93,182);
+}
+.loading-indicator {
+    position: fixed;
+    z-index: 999;
+    height: 2em;
+    width: 20em;
+    overflow: show;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  
+  /* Transparent Overlay */
+  .loading-indicator:before {
+    content: '';
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+  }

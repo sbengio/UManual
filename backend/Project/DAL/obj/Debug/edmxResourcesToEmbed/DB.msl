@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DeviceVideosDBModelStoreContainer" CdmEntityContainer="DeviceVideosDBEntities1">
+    <EntitySetMapping Name="DeviceBrands">
+      <EntityTypeMapping TypeName="DeviceVideosDBModel.DeviceBrand">
+        <MappingFragment StoreEntitySet="DeviceBrands">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Devices">
+      <EntityTypeMapping TypeName="DeviceVideosDBModel.Device">
+        <MappingFragment StoreEntitySet="Devices">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DeviceTypeId" ColumnName="DeviceTypeId" />
+          <ScalarProperty Name="DeviceBrandId" ColumnName="DeviceBrandId" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeviceTypes">
+      <EntityTypeMapping TypeName="DeviceVideosDBModel.DeviceType">
+        <MappingFragment StoreEntitySet="DeviceTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UploaderTimes">
+      <EntityTypeMapping TypeName="DeviceVideosDBModel.UploaderTime">
+        <MappingFragment StoreEntitySet="UploaderTimes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UploaderId" ColumnName="UploaderId" />
+          <ScalarProperty Name="Start" ColumnName="Start" />
+          <ScalarProperty Name="End" ColumnName="End" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Languages">
+      <EntityTypeMapping TypeName="DeviceVideosDBModel.Language">
+        <MappingFragment StoreEntitySet="Languages">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="LanguageName" ColumnName="LanguageName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Views">
+      <EntityTypeMapping TypeName="DeviceVideosDBModel.View">
+        <MappingFragment StoreEntitySet="Views">
+          <ScalarProperty Name="VideoId" ColumnName="VideoId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Feedbacks">
+      <EntityTypeMapping TypeName="DeviceVideosDBModel.Feedback">
+        <MappingFragment StoreEntitySet="Feedbacks">
+          <ScalarProperty Name="MinutesStopped" ColumnName="MinutesStopped" />
+          <ScalarProperty Name="Finish" ColumnName="Finish" />
+          <ScalarProperty Name="Stars" ColumnName="Stars" />
+          <ScalarProperty Name="BackCount" ColumnName="BackCount" />
+          <ScalarProperty Name="PauseCount" ColumnName="PauseCount" />
+          <ScalarProperty Name="VideoId" ColumnName="VideoId" />
+          <ScalarProperty Name="IP_Address" ColumnName="IP_Address" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Seniors">
+      <EntityTypeMapping TypeName="DeviceVideosDBModel.Senior">
+        <MappingFragment StoreEntitySet="Seniors">
+          <ScalarProperty Name="IP_Address" ColumnName="IP_Address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="DeviceVideosDBModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Buyers">
+      <EntityTypeMapping TypeName="DeviceVideosDBModel.Buyer">
+        <MappingFragment StoreEntitySet="Buyers">
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Token" ColumnName="Token" />
+          <ScalarProperty Name="CreditCardNumbers" ColumnName="CreditCardNumbers" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="BuyerId" ColumnName="BuyerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Incomes">
+      <EntityTypeMapping TypeName="DeviceVideosDBModel.Income">
+        <MappingFragment StoreEntitySet="Income">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="BuyerId" ColumnName="BuyerId" />
+          <ScalarProperty Name="VideoId" ColumnName="VideoId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Uploaders">
+      <EntityTypeMapping TypeName="DeviceVideosDBModel.Uploader">
+        <MappingFragment StoreEntitySet="Uploaders">
+          <ScalarProperty Name="Inactive" ColumnName="Inactive" />
+          <ScalarProperty Name="AverageRating" ColumnName="AverageRating" />
+          <ScalarProperty Name="Earnings" ColumnName="Earnings" />
+          <ScalarProperty Name="Timezone" ColumnName="Timezone" />
+          <ScalarProperty Name="Support" ColumnName="Support" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="UploaderLanguages" TypeName="DeviceVideosDBModel.UploaderLanguages" StoreEntitySet="UploaderLanguages">
+      <EndProperty Name="Uploader">
+        <ScalarProperty Name="Id" ColumnName="UploaderId" />
+      </EndProperty>
+      <EndProperty Name="Language">
+        <ScalarProperty Name="Id" ColumnName="LanguageId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="Videos">
+      <EntityTypeMapping TypeName="DeviceVideosDBModel.Video">
+        <MappingFragment StoreEntitySet="Videos">
+          <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="AverageRating" ColumnName="AverageRating" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Approved" ColumnName="Approved" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="SubUrl" ColumnName="SubUrl" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Blocked" ColumnName="Blocked" />
+          <ScalarProperty Name="Views" ColumnName="Views" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+          <ScalarProperty Name="UploaderId" ColumnName="UploaderId" />
+          <ScalarProperty Name="VideoId" ColumnName="VideoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

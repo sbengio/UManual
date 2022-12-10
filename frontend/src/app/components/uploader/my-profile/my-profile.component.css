@@ -1,0 +1,168 @@
+mat-sidenav {
+    margin: 16px;
+    width: 212px;
+    border-right: none;
+    background: rgb(20,93,182);
+    color: white;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+}
+mat-toolbar,#btn{
+    background: rgb(20,93,182);
+}
+:host::ng-deep .mat-step-header .mat-step-icon-selected,
+:host::ng-deep .mat-step-header .mat-step-icon,
+:host::ng-deep .mat-step-header .mat-step-label.mat-step-label-active,
+:host::ng-deep .mat-step-header .mat-step-label{
+    background: #ffb618;
+    color: black;
+}
+::ng-deep .mat-option:hover:not(.mat-option-disabled),
+::ng-deep .mat-select-panel,
+::ng-deep .mat-primary .mat-option.mat-selected:not(.mat-option-disabled), 
+::ng-deep .mat-select-arrow,
+::ng-deep .mat-form-field .mat-select.mat-select-invalid .mat-select-arrow,
+::ng-deep.mat-form-field.mat-focused.mat-primary .mat-select-arrow{
+    background: #ffb618;
+    color: black;
+}
+::ng-deep .mat-select-value{
+    color: black;
+}
+::ng-deep .mat-option,
+::ng-deep .mat-option.mat-active,
+::ng-deep .mat-primary .mat-pseudo-checkbox-checked,
+::ng-deep .mat-pseudo-checkbox::after,
+#add{
+    background: rgb(20,93,182);
+    color: white;
+}
+:host::ng-deep .mat-horizontal-stepper-header::before,
+:host::ng-deep .mat-horizontal-stepper-header::after,
+:host::ng-deep .mat-stepper-horizontal-line{
+    border-top-color: black;
+}
+:host::ng-deep .mat-form-field.mat-focused .mat-form-field-label.mat-accent,
+:host::ng-deep .mat-form-field.mat-focused .mat-form-field-label .mat-form-field-required-marker,
+:host::ng-deep .mat-focused .mat-form-field-label,
+:host::ng-deep .mat-form-field-label,
+:host::ng-deep .mat-input-element,
+:host::ng-deep.mat-drawer-container{
+    color: black !important;
+}
+:host::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple {
+    background-color: black !important;
+}
+:host::ng-deep.mat-form-field-disabled{
+    opacity: 0.5
+}
+#updated{
+    display: none;
+}
+#btn{
+    top: 275px;
+    position: relative;
+    font-size: medium;
+    left: 160px;
+}
+.content {
+    height: calc(100vh - 98px);
+    border-radius: 10px;
+    margin: 16px;
+    margin-left: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    font-size: 2rem;
+    background-color: transparent;
+}
+mat-sidenav-container {
+    height: calc(100vh - 65px);
+    background: transparent
+}
+.menu-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem; 
+}
+.menu-button mat-icon {
+    margin-right: 8px;
+}
+#logout{
+    left: 95%;
+    position: fixed;
+}
+mat-stepper{
+    max-width: 600px;
+    max-height: 600px;
+    border-radius: 70px;
+    text-align: center;
+    background: #ffb618;
+    padding: 10px;
+}
+.full-width{
+    width: 80%;
+}
+form{
+    font-size: 16px;
+}
+#upload{
+    position: fixed;
+    left: 14%;
+}
+#notifications{
+    left: 91%;
+    position: fixed;
+}
+#active{
+    background: #ffb618;
+    color: black;
+}
+#add{
+    border: none;
+    font-size: larger;
+    margin-bottom: 5px;
+    opacity: 0.5;
+}
+#su{
+    color: rgb(20,93,182);
+    text-align: left;   
+    margin-left: 10%;
+    font-size: medium;
+    opacity: 0.5;
+}
+#text,#text2{
+    top: 15px;
+    position: relative;
+    opacity: 0.5;
+}
+:host::ng-deep .mat-progress-spinner circle,
+:host::ng-deep .mat-spinner circle{
+    stroke: rgb(20,93,182);
+}
+.loading-indicator {
+    position: fixed;
+    z-index: 999;
+    height: 2em;
+    width: 20em;
+    overflow: show;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  /* Transparent Overlay */
+  .loading-indicator:before {
+    content: '';
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+  } 

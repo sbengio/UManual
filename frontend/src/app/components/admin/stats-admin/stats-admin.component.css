@@ -1,0 +1,61 @@
+mat-toolbar{
+    background: rgb(20,93,182);
+}
+mat-sidenav-container {
+    height: calc(100vh - 65px);
+    background: transparent
+}
+.menu-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem; 
+}
+.menu-button mat-icon {
+    margin-right: 8px;
+}
+mat-sidenav {
+    margin: 16px;
+    width: 212px;
+    border-right: none;
+    background: rgb(20,93,182);
+    color: white;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+}
+.content {
+    height: calc(100vh - 98px);
+    border-radius: 10px;
+    margin: 16px;
+    margin-left: 32px;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+#logout{
+    left: 97%;
+    position: fixed;
+}
+#notifications{
+    left: 94%;
+    position: fixed;
+}
+#active{
+    background-color: #ffb618;
+    color: black;
+}
+mat-card-title{
+    color: rgb(20,93,182);
+    font-weight: bold;
+    padding: 10px;
+}
+.example-card {
+    background: transparent;
+    margin: 50px;
+    margin-left: 33px;
+    margin-right: 33px;
+}

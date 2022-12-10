@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DAL.DeviceBrandDAL">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAQAAEAAAAAAAAAAA=</HashCode>
+      <FileName>DeviceBrandDAL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.BuyerDAL">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgEAACAAAAA=</HashCode>
+      <FileName>BuyerDAL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.AdminDAL">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AdminDAL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.DevicesDAL">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAEAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DevicesDAL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.DeviceTypeDAL">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>DeviceTypeDAL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.FeedbackDAL">
+    <Position X="7.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>RAAAAAAAAAAAAAAAAIAAAAAAQAAQAAABAAAAAgAAAAA=</HashCode>
+      <FileName>FeedbackDAL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.IncomeDAL">
+    <Position X="5.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAABAAAAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IncomeDAL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.LanguageDAL">
+    <Position X="4" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>LanguageDAL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.SeniorDAL">
+    <Position X="2.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>SeniorDAL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.UploaderDAL">
+    <Position X="0.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAQAAEQAAAAQAACAIAAAAAAAAgAEAAAAAAAA=</HashCode>
+      <FileName>UploaderDAL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.UploaderLanguagesDAL">
+    <Position X="2.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UploaderLanguagesDAL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.UploaderTimesDAL">
+    <Position X="4" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAgAAAQAAAAAAAAAACAAAAEAAAAABAAAAAA=</HashCode>
+      <FileName>UploaderTimesDAL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.VideoDAL">
+    <Position X="5.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IQAAAQAAAAQIAAEAMAAAAAAAAAAAAAAARAAAAgCAAAA=</HashCode>
+      <FileName>VideoDAL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.ViewDAL">
+    <Position X="7.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABgAAAAhAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewDAL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

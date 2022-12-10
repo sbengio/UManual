@@ -1,0 +1,134 @@
+<div lang="en" style="min-height: 100%; position: relative;">
+<div [style.padding-bottom]="4*(marginl+marginxl+marginxxl)+98+'px'">
+<header id="flex-container2">
+<h1 id="title"[style.font-size]="LargeFs+LargerFs+XLargeFs+35+'px'"><strong>Umanual Search</strong></h1>
+<a role="button" mat-raised-button id="login" [routerLink]="['/login']" [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'">
+    <mat-icon>account_circle</mat-icon>
+    Login
+</a></header>
+<main>
+<mat-card class="container2 mat-elevation-z0" role="grid" aria-label="Change font size" *ngIf="invisible">
+    <div class="row" role="row">
+    <div class="col" role="gridcell">
+        <button class="font" aria-label="increase font size by 6 pixels" mat-raised-button id="font1" (click)="large()">A</button>
+    </div>
+    <div class="col" role="gridcell">
+        <button class="font" aria-label="increase font size by 10 pixels" mat-raised-button id="font2" (click)="larger()">A</button>
+    </div>
+    <div class="col" role="gridcell">
+        <button class="font" aria-label="increase font size by 14 pixels" mat-raised-button id="font3" (click)="x_large()">A</button>  
+    </div>
+    </div>
+</mat-card>
+<div class="flex-container">
+    <form id="searchForm" role='search' aria-label="freestyle device">
+        <input type="text" [formControl]="freestylesearch" aria-label="Search device"  id="searchInput" placeholder="Search device" [matAutocomplete]="auto" (keydown)="enter($event,search.value)" [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'"  #search >
+        <mat-autocomplete #auto="matAutocomplete" >
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                {{option}}
+            </mat-option>
+            </mat-autocomplete>
+        <button id="searchButton" type="submit" role="button" mat-raised-button color="accent" (click)="freeStyleSearch(search.value)" [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'">
+            Search<mat-icon>search</mat-icon>
+        </button>
+    </form>
+    <form id="voiceForm" role='search' aria-label="voice device">
+        <button role="button" type="submit" id="recordButton" (click)="record()" mat-raised-button color="accent" [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'">
+            <mat-icon>keyboard_voice</mat-icon>{{text}}
+        </button>
+    </form>
+</div>
+<div id="clink">
+<a id="link" aria-labelledby="go to search history" [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'" [routerLink]="['/searchhistory']" class="shistory">Go to search history</a>
+</div>
+<h2 id="grid1_label" [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'">
+    Advanced search
+</h2>
+<form role='search' [formGroup]="searchForm" aria-label="advanced device">
+<mat-card class="container4" role="grid" aria-labelledby="grid1_label" data-wrap-rows="true">
+    <div class="ce"role="row">
+    <div class="ce1" role="gridcell" >
+        <label for="type" [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'" >Device type:</label>
+        <select role="listbox" (keydown)="onKeydown($event)" [attr.aria-activedescendant]="model" id="type" formControlName="deviceType" name="deviceType" #deviceType [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'">
+            <option role="option" #op selected disabled [value]="null">select device type</option>
+            <option role="option" #op *ngFor="let dt of devicetypes" [value]="dt.Id" id="dt.Id">{{dt.Type}}</option>
+        </select>
+    </div>
+    <div class="ce2" role="gridcell">
+        <label for="brand" [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'">Device brand:</label>
+        <select role="listbox" tabindex="-1" id="brand" (keydown)="onKeydown2($event)" [attr.aria-activedescendant]="model2" formControlName="deviceBrand" name="deviceBrand" #deviceBrand [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'">
+            <option role="option" #op1 selected disabled [value]="null">select device brand</option>
+            <option role="option" #op1 *ngFor="let d of deviceBrands" [value]="d.Id">{{d.Brand}}</option>
+        </select>
+    </div>
+    <div class="ce3" role="gridcell">
+        <label for="model" [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'">Device model:</label>
+        <select role="listbox" tabindex="-1" id="model" (keydown)="onKeydown3($event)" [attr.aria-activedescendant]="model3" formControlName="deviceModel" name="deviceModel" #deviceModel [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'">
+            <option role="option" #op3 selected disabled [value]="null">select device model</option>
+            <option role="option" #op3 *ngFor="let d of deviceModels" [value]="d.Model">{{d.Model}}</option>
+        </select>
+    </div>
+    </div>
+</mat-card></form>
+<div role="status">
+<h2 *ngIf="this.undefine" [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'">Voice is not recognized</h2>
+<h2 *ngIf="this.searched==true && !freestyle" [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'">Searched for {{selectedDevice.DeviceBrand}} {{selectedDevice.DeviceType}} {{selectedDevice.Model}}</h2>
+<h2 *ngIf="this.searched==true && freestyle" [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'">Searched for {{searchText}}</h2>
+<h2 *ngIf="this.searched==true || this.num=='No'" [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'">
+    {{num}} videos were found
+</h2>
+<p *ngIf="this.searched==true&&this.num!='No'">
+    <label for="sort" [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'">Sort by:</label>
+    <select role="listbox" #t id="sort" (change)="sortby(t.value)" [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'">
+        <option role="option">sort by...</option>
+        <option role="option" value="Upload date">Upload date</option>
+        <option role="option" value="Rating">Rating</option>
+        <option role="option" value="Views">Views</option>
+        <option role="option" value="Duration">Video length</option>
+    </select>
+</p>
+<div class="mat-elevation-z0">
+    <table mat-table [dataSource]="datasource" *ngIf="this.searched==true&&this.num!='No'" aria-label="search results">
+        <ng-container matColumnDef="Duration">
+            <th mat-header-cell *matHeaderCellDef [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'" id="sortDuration">Duration</th>
+            <td mat-cell *matCellDef="let element" [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'">
+                {{element.durationStr}}</td>
+        </ng-container>
+        <ng-container matColumnDef="Date">
+            <th mat-header-cell *matHeaderCellDef [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'" id="sortDate">Uploaded on</th>
+            <td mat-cell *matCellDef="let element" [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'">{{element.Date|date}}</td>
+        </ng-container>
+        <ng-container matColumnDef="Language">
+            <th mat-header-cell *matHeaderCellDef [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'">Language</th>
+            <td mat-cell *matCellDef="let element" [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'">{{element.Language.split('(')[0]}}</td>
+        </ng-container>
+        <ng-container matColumnDef="rating">
+            <th mat-header-cell *matHeaderCellDef [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'" id="sortRating">Rating</th>
+            <td mat-cell *matCellDef="let element" [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'">{{element.AverageRating}} Stars</td>
+        </ng-container>
+        <ng-container matColumnDef="support">
+            <th mat-header-cell *matHeaderCellDef [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'">Support</th>
+            <td mat-cell *matCellDef="let element" [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'">{{element.Support ? 'Yes':'No'}}</td>
+        </ng-container>       
+        <ng-container matColumnDef="watch">
+            <th mat-header-cell *matHeaderCellDef [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'">Watch video</th>
+            <td mat-cell  *matCellDef="let element">
+                <a role="button" id="playbtn"aria-label="play video" mat-raised-button (click)="save(element)" [style.width]="LargeFs+LargerFs+XLargeFs+largebox+30+'px'" [style.height]="LargeFs+LargerFs+XLargeFs+40+'px'">
+                    <mat-icon class="mat-18" [style.font-size]="LargeFs+LargerFs+XLargeFs+24+'px'">play_arrow</mat-icon>
+                </a>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div></div>
+<div class="loading-indicator" aria-label="page loading" *ngIf="show"><mat-spinner></mat-spinner></div>
+</main>
+</div>
+<footer class="footer" role="contentinfo" aria-label="footer" [style.height]="4*(marginl+marginxl+marginxxl)+98+'px'" [style.margin-top]="-4*(marginl+marginxl+marginxxl)-98+'px'">
+        <div [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'" [style.margin]="marginl+marginxl+marginxxl+3+'px'"><strong>Contact us</strong></div>
+        <div [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'" [style.margin]="marginl+marginxl+marginxxl+3+'px'">Technical support: 354546</div>
+        <div [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'" [style.margin]="marginl+marginxl+marginxxl+3+'px'">Email address: <a [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'" href="mailto:help@umanual.com" id="mail">help@umanual.com</a></div> 
+        <div [style.font-size]="LargeFs+LargerFs+XLargeFs+16+'px'" [style.margin]="marginl+marginxl+marginxxl+3+'px'">&copy;2022</div>
+</footer>
+</div>
